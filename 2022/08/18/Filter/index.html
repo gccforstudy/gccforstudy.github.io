@@ -6,20 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://gccforstudy.github.io">
-  <title>我的第一篇文章 | gcc的博客</title>
+  <title>Filter | gcc的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. gcc1.1 gcc1.1.1 gcc">
+  <meta name="description" content="FilterFilter(过滤器)是JavaWeb三大组件之一，为了后续可以更好地掌握SpringMVC框架，仔细学习一下过滤器的基础知识是很有必要的。 过滤器的三要素 拦截  ​	过滤器之所以能够对请求进行预处理，关键是对请求进行拦截，把请求拦截下来才能够做后续的操作。而且对于一个具体的过滤器，它必须明确它要拦截的请求，而不是所有请求都拦截。  过滤  ​	根据业务功能实际的需求，看看在把请求拦">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的第一篇文章">
-<meta property="og:url" content="https://gccforstudy.github.io/2022/08/16/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/index.html">
+<meta property="og:title" content="Filter">
+<meta property="og:url" content="https://gccforstudy.github.io/2022/08/18/Filter/index.html">
 <meta property="og:site_name" content="gcc的博客">
-<meta property="og:description" content="1. gcc1.1 gcc1.1.1 gcc">
+<meta property="og:description" content="FilterFilter(过滤器)是JavaWeb三大组件之一，为了后续可以更好地掌握SpringMVC框架，仔细学习一下过滤器的基础知识是很有必要的。 过滤器的三要素 拦截  ​	过滤器之所以能够对请求进行预处理，关键是对请求进行拦截，把请求拦截下来才能够做后续的操作。而且对于一个具体的过滤器，它必须明确它要拦截的请求，而不是所有请求都拦截。  过滤  ​	根据业务功能实际的需求，看看在把请求拦">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-16T13:40:29.000Z">
-<meta property="article:modified_time" content="2022-08-17T04:25:28.486Z">
+<meta property="og:image" content="https://gccforstudy.github.io/.io//%E8%BF%87%E6%BB%A4%E5%99%A8%E6%B5%81%E7%A8%8B%E5%9B%BE.jpg">
+<meta property="og:image" content="https://gccforstudy.github.io/.io//%E8%BF%87%E6%BB%A4%E5%99%A8%E9%93%BE.jpg">
+<meta property="og:image" content="https://gccforstudy.github.io/.io//FilterChainh%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.png">
+<meta property="article:published_time" content="2022-08-18T11:41:07.000Z">
+<meta property="article:modified_time" content="2022-08-18T13:20:57.471Z">
 <meta property="article:author" content="gcc">
-<meta property="article:tag" content="java后端开发">
+<meta property="article:tag" content="过滤器">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gccforstudy.github.io/.io//%E8%BF%87%E6%BB%A4%E5%99%A8%E6%B5%81%E7%A8%8B%E5%9B%BE.jpg">
   
     <link rel="alternative" href="/atom.xml" title="gcc的博客" type="application/atom+xml">
   
@@ -139,27 +143,118 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-我的第一篇文章" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Filter" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      我的第一篇文章
+      Filter
     </h1>
   
 
         
-        <a href="/2022/08/16/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2022-08-16T13:40:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-16</time>
+        <a href="/2022/08/18/Filter/" class="archive-article-date">
+  	<time datetime="2022-08-18T11:41:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-gcc"><a href="#1-gcc" class="headerlink" title="1. gcc"></a>1. gcc</h1><h2 id="1-1-gcc"><a href="#1-1-gcc" class="headerlink" title="1.1 gcc"></a>1.1 gcc</h2><h3 id="1-1-1-gcc"><a href="#1-1-1-gcc" class="headerlink" title="1.1.1 gcc"></a>1.1.1 gcc</h3>
+        <h2 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h2><p>Filter(过滤器)是JavaWeb三大组件之一，为了后续可以更好地掌握SpringMVC框架，仔细学习一下过滤器的基础知识是很有必要的。</p>
+<h3 id="过滤器的三要素"><a href="#过滤器的三要素" class="headerlink" title="过滤器的三要素"></a>过滤器的三要素</h3><ol>
+<li>拦截</li>
+</ol>
+<p>​	过滤器之所以能够对请求进行预处理，关键是对请求进行拦截，把请求拦截下来才能够做后续的操作。而且对于一个具体的过滤器，它必须明确它要拦截的请求，而不是所有请求都拦截。</p>
+<ol start="2">
+<li>过滤</li>
+</ol>
+<p>​	根据业务功能实际的需求，看看在把请求拦截到之后，需要做什么检查或什么操作，写对应的代码即可。</p>
+<ol start="3">
+<li>放行</li>
+</ol>
+<p>​	过滤器完成自己的任务或者是检测到当前请求符合过滤规则，那么可以将请求放行。所谓放行，就是让请求继续去访问它原本要访问的资源。</p>
+<h3 id="过滤器工作流程及实验"><a href="#过滤器工作流程及实验" class="headerlink" title="过滤器工作流程及实验"></a>过滤器工作流程及实验</h3><h4 id="过滤器工作流程图"><a href="#过滤器工作流程图" class="headerlink" title="过滤器工作流程图"></a>过滤器工作流程图</h4><p><img src="/.io//%E8%BF%87%E6%BB%A4%E5%99%A8%E6%B5%81%E7%A8%8B%E5%9B%BE.jpg"></p>
+<h4 id="Filter接口源码"><a href="#Filter接口源码" class="headerlink" title="Filter接口源码"></a>Filter接口源码</h4><p>为了实现上述的工作流程，需要创建Filter接口的实现类，为了更好地理解Filter，我们来简单地看一下该接口的源码，Filter接口源码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * A filter is an object that performs filtering tasks on either the</span></span><br><span class="line"><span class="comment"> * request to a resource (a servlet or static content), or on the response</span></span><br><span class="line"><span class="comment"> * from a resource, or both.</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * &lt;p&gt;Filters perform filtering in the &lt;code&gt;doFilter&lt;/code&gt; method.</span></span><br><span class="line"><span class="comment"> * Every Filter has access to a FilterConfig object from which it can obtain</span></span><br><span class="line"><span class="comment"> * its initialization parameters, and a reference to the ServletContext which</span></span><br><span class="line"><span class="comment"> * it can use, for example, to load resources needed for filtering tasks.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;Filters are configured in the deployment descriptor of a web</span></span><br><span class="line"><span class="comment"> * application.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;Examples that have been identified for this design are:</span></span><br><span class="line"><span class="comment"> * &lt;ol&gt;</span></span><br><span class="line"><span class="comment"> * &lt;li&gt;Authentication Filters</span></span><br><span class="line"><span class="comment"> * &lt;li&gt;Logging and Auditing Filters</span></span><br><span class="line"><span class="comment"> * &lt;li&gt;Image conversion Filters</span></span><br><span class="line"><span class="comment"> * &lt;li&gt;Data compression Filters</span></span><br><span class="line"><span class="comment"> * &lt;li&gt;Encryption Filters</span></span><br><span class="line"><span class="comment"> * &lt;li&gt;Tokenizing Filters</span></span><br><span class="line"><span class="comment"> * &lt;li&gt;Filters that trigger resource access events</span></span><br><span class="line"><span class="comment"> * &lt;li&gt;XSL/T filters</span></span><br><span class="line"><span class="comment"> * &lt;li&gt;Mime-type chain Filter</span></span><br><span class="line"><span class="comment"> * &lt;/ol&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span> Servlet 2.3</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Filter</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * Called by the web container to indicate to a filter that it is</span></span><br><span class="line"><span class="comment">     * being placed into service.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;The servlet container calls the init</span></span><br><span class="line"><span class="comment">     * method exactly once after instantiating the filter. The init</span></span><br><span class="line"><span class="comment">     * method must complete successfully before the filter is asked to do any</span></span><br><span class="line"><span class="comment">     * filtering work.</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * &lt;p&gt;The web container cannot place the filter into service if the init</span></span><br><span class="line"><span class="comment">     * method either</span></span><br><span class="line"><span class="comment">     * &lt;ol&gt;</span></span><br><span class="line"><span class="comment">     * &lt;li&gt;Throws a ServletException</span></span><br><span class="line"><span class="comment">     * &lt;li&gt;Does not return within a time period defined by the web container</span></span><br><span class="line"><span class="comment">     * &lt;/ol&gt;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">init</span><span class="params">(FilterConfig filterConfig)</span> <span class="keyword">throws</span> ServletException;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * The &lt;code&gt;doFilter&lt;/code&gt; method of the Filter is called by the</span></span><br><span class="line"><span class="comment">     * container each time a request/response pair is passed through the</span></span><br><span class="line"><span class="comment">     * chain due to a client request for a resource at the end of the chain.</span></span><br><span class="line"><span class="comment">     * The FilterChain passed in to this method allows the Filter to pass</span></span><br><span class="line"><span class="comment">     * on the request and response to the next entity in the chain.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;A typical implementation of this method would follow the following</span></span><br><span class="line"><span class="comment">     * pattern:</span></span><br><span class="line"><span class="comment">     * &lt;ol&gt;</span></span><br><span class="line"><span class="comment">     * &lt;li&gt;Examine the request</span></span><br><span class="line"><span class="comment">     * &lt;li&gt;Optionally wrap the request object with a custom implementation to</span></span><br><span class="line"><span class="comment">     * filter content or headers for input filtering</span></span><br><span class="line"><span class="comment">     * &lt;li&gt;Optionally wrap the response object with a custom implementation to</span></span><br><span class="line"><span class="comment">     * filter content or headers for output filtering</span></span><br><span class="line"><span class="comment">     * &lt;li&gt;</span></span><br><span class="line"><span class="comment">     * &lt;ul&gt;</span></span><br><span class="line"><span class="comment">     * &lt;li&gt;&lt;strong&gt;Either&lt;/strong&gt; invoke the next entity in the chain</span></span><br><span class="line"><span class="comment">     * using the FilterChain object</span></span><br><span class="line"><span class="comment">     * (&lt;code&gt;chain.doFilter()&lt;/code&gt;),</span></span><br><span class="line"><span class="comment">     * &lt;li&gt;&lt;strong&gt;or&lt;/strong&gt; not pass on the request/response pair to</span></span><br><span class="line"><span class="comment">     * the next entity in the filter chain to</span></span><br><span class="line"><span class="comment">     * block the request processing</span></span><br><span class="line"><span class="comment">     * &lt;/ul&gt;</span></span><br><span class="line"><span class="comment">     * &lt;li&gt;Directly set headers on the response after invocation of the</span></span><br><span class="line"><span class="comment">     * next entity in the filter chain.</span></span><br><span class="line"><span class="comment">     * &lt;/ol&gt;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doFilter</span><span class="params">(ServletRequest request, ServletResponse response,</span></span><br><span class="line"><span class="params">                         FilterChain chain)</span></span><br><span class="line">            <span class="keyword">throws</span> IOException, ServletException;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Called by the web container to indicate to a filter that it is being</span></span><br><span class="line"><span class="comment">     * taken out of service.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;This method is only called once all threads within the filter&#x27;s</span></span><br><span class="line"><span class="comment">     * doFilter method have exited or after a timeout period has passed.</span></span><br><span class="line"><span class="comment">     * After the web container calls this method, it will not call the</span></span><br><span class="line"><span class="comment">     * doFilter method again on this instance of the filter.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;This method gives the filter an opportunity to clean up any</span></span><br><span class="line"><span class="comment">     * resources that are being held (for example, memory, file handles,</span></span><br><span class="line"><span class="comment">     * threads) and make sure that any persistent state is synchronized</span></span><br><span class="line"><span class="comment">     * with the filter&#x27;s current state in memory.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">destroy</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>小伙伴们在初学阶段可以不用过分在意细节，上述源码的版本是3.1.0。通过上述源码我们得知，该接口中只有三个方法，分别是init初始化方法、doFilter方法(执行过滤代码的方法)、destroy销毁方法。</p>
+<p>提示</p>
+<blockquote>
+<p>小伙伴们可以注意一下doFilter方法中的chain参数，稍后会讲这个参数是起什么作用的</p>
+</blockquote>
+<h4 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h4><p>接下来我们需要创建Filter，创建步骤如下：</p>
+<ol>
+<li>实现javax.servlet.Filter接口</li>
+<li>在doFilter()方法中执行过滤</li>
+<li>如果满足过滤条件使用 chain.doFilter(request, response)放行</li>
+<li>如果不满足过滤条件转发或重定向请求</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Target01Filter</span> <span class="keyword">implements</span> <span class="title class_">Filter</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">init</span><span class="params">(FilterConfig filterConfig)</span> <span class="keyword">throws</span> ServletException &#123;</span><br><span class="line">		<span class="comment">//初始化方法可以不具体实现</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doFilter</span><span class="params">(ServletRequest request, ServletResponse response, FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 1.打印一句话表明Filter执行了</span></span><br><span class="line">        System.out.println(<span class="string">&quot;过滤器执行：Target01Filter&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2.检查是否满足过滤条件</span></span><br><span class="line">        <span class="comment">// 人为设定一个过滤条件：请求参数message是否等于gcc</span></span><br><span class="line">        <span class="comment">// 等于：放行</span></span><br><span class="line">        <span class="comment">// 不等于：将请求交给另一个Servlet处理</span></span><br><span class="line">        <span class="comment">// 获取请求参数</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">message</span> <span class="operator">=</span> request.getParameter(<span class="string">&quot;message&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// ②检查请求参数是否等于monster</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="string">&quot;gcc&quot;</span>.equals(message)) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 执行放行</span></span><br><span class="line">            <span class="comment">// FilterChain对象代表过滤器链</span></span><br><span class="line">            <span class="comment">// chain.doFilter(request, response)方法效果：将请求放行到下一个Filter，</span></span><br><span class="line">            <span class="comment">// 如果当前Filter已经是最后一个Filter了，那么就将请求放行到原本要访问的目标资源</span></span><br><span class="line">            chain.doFilter(request, response);</span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 不满足过滤条件，交给另一个Servlet处理</span></span><br><span class="line">            request.getRequestDispatcher(<span class="string">&quot;/SpecialServlet?method=toSpecialPage&quot;</span>).forward(request, response);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">destroy</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="comment">//销毁方法可以不具体实现</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>值得一提，我们只写上述代码过滤器是不会起作用的，要想让过滤器起作用，还需要在web.xml文件中注册该过滤器。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置Target01Filter --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 配置Filter的友好名称 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>Target01Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 配置Filter的全类名，便于Servlet容器创建Filter对象 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.gcc.filter.Target01Filter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 配置Filter要拦截的目标资源 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定这个mapping对应的Filter名称 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>Target01Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 通过请求地址模式来设置要拦截的资源 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/Target01Servlet<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Filter生命周期"><a href="#Filter生命周期" class="headerlink" title="Filter生命周期"></a>Filter生命周期</h3><table>
+<thead>
+<tr>
+<th>生命周期阶段</th>
+<th>执行时机</th>
+<th>执行次数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>创建对象</td>
+<td>Web应用启动时</td>
+<td>一次</td>
+</tr>
+<tr>
+<td>初始化</td>
+<td>创建对象后</td>
+<td>一次</td>
+</tr>
+<tr>
+<td>拦截请求</td>
+<td>接收到匹配的请求</td>
+<td>多次</td>
+</tr>
+<tr>
+<td>销毁</td>
+<td>Web应用卸载前</td>
+<td>一次</td>
+</tr>
+</tbody></table>
+<h3 id="Filter过滤规则详述"><a href="#Filter过滤规则详述" class="headerlink" title="Filter过滤规则详述"></a>Filter过滤规则详述</h3><p>本节要探讨的是在filter-mapping中如何将Filter同它要拦截的资源关联起来。</p>
+<h4 id="精准匹配"><a href="#精准匹配" class="headerlink" title="精准匹配"></a>精准匹配</h4><p>指定被拦截资源的完整路径：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置Filter要拦截的目标资源 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定这个mapping对应的Filter名称 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>Target01Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 通过请求地址模式来设置要拦截的资源 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/Target01Servlet<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="模糊匹配"><a href="#模糊匹配" class="headerlink" title="模糊匹配"></a>模糊匹配</h4><p>相比较精确匹配，使用模糊匹配可以让我们创建一个Filter就能够覆盖很多目标资源，不必专门为每一个目标资源都创建Filter。</p>
+<h5 id="前杠后星"><a href="#前杠后星" class="headerlink" title="前杠后星"></a>前杠后星</h5><p>在我们配置了url-pattern为&#x2F;user&#x2F;*之后，请求地址只要是&#x2F;user开头的那么就会被匹配。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>Target02Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 模糊匹配：前杠后星 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">        /user/Target02Servlet</span></span><br><span class="line"><span class="comment">        /user/Target03Servlet</span></span><br><span class="line"><span class="comment">        /user/Target04Servlet</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/user/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>极端情况：&#x2F;*匹配所有请求</p>
+<h5 id="前星后缀"><a href="#前星后缀" class="headerlink" title="前星后缀"></a>前星后缀</h5><p>可以匹配所有后缀为某个特定值的请求，举例如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>Target03Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.gcc.filter.Target04Filter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>Target03Filter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>*.png<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>该过滤可以拦截所有后缀为png的请求</p>
+<h3 id="过滤器链"><a href="#过滤器链" class="headerlink" title="过滤器链"></a>过滤器链</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><ul>
+<li>多个Filter的<strong>拦截范围</strong>如果存在<strong>重合部分</strong>，那么这些Filter会形成<strong>Filter链</strong>。</li>
+<li>浏览器请求重合部分对应的目标资源时，会<strong>依次经过</strong>Filter链中的每一个Filter。</li>
+<li>Filter链中每一个Filter执行的<strong>顺序是由web.xml中filter-mapping配置的顺序决定</strong>的。</li>
+</ul>
+<p><img src="/.io//%E8%BF%87%E6%BB%A4%E5%99%A8%E9%93%BE.jpg"></p>
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><ul>
+<li>创建超链接访问一个普通的Servlet即可</li>
+<li>创建多个Filter拦截Servlet</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>Filter1<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/testServlet<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>Filter2<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/testServlet<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/.io//FilterChainh%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.png"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>作为一个Java后端初学者，本人水平有限，只能从Filter的应用层面给出自己的见解。如果小伙伴们需要更加深入地学习Filter这个组件，建议观看源码，毕竟源码之下没有秘密，愿开源精神永存。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>本文参考尚硅谷的JavaWeb教程，有兴趣的朋友可以去看看（b站直接搜索即可）</p>
+
       
 
       
@@ -167,6 +262,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">过滤器</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -217,7 +323,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://gccforstudy.github.io/2022/08/16/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://gccforstudy.github.io/2022/08/18/Filter/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -260,7 +366,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-gcc"><span class="toc-number">1.</span> <span class="toc-text">1. gcc</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-gcc"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 gcc</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-1-gcc"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1.1 gcc</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Filter"><span class="toc-number">1.</span> <span class="toc-text">Filter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E4%B8%89%E8%A6%81%E7%B4%A0"><span class="toc-number">1.1.</span> <span class="toc-text">过滤器的三要素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E5%8F%8A%E5%AE%9E%E9%AA%8C"><span class="toc-number">1.2.</span> <span class="toc-text">过滤器工作流程及实验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">1.2.1.</span> <span class="toc-text">过滤器工作流程图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Filter%E6%8E%A5%E5%8F%A3%E6%BA%90%E7%A0%81"><span class="toc-number">1.2.2.</span> <span class="toc-text">Filter接口源码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">1.2.3.</span> <span class="toc-text">实验</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Filter%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">1.3.</span> <span class="toc-text">Filter生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Filter%E8%BF%87%E6%BB%A4%E8%A7%84%E5%88%99%E8%AF%A6%E8%BF%B0"><span class="toc-number">1.4.</span> <span class="toc-text">Filter过滤规则详述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B2%BE%E5%87%86%E5%8C%B9%E9%85%8D"><span class="toc-number">1.4.1.</span> <span class="toc-text">精准匹配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E7%B3%8A%E5%8C%B9%E9%85%8D"><span class="toc-number">1.4.2.</span> <span class="toc-text">模糊匹配</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%89%8D%E6%9D%A0%E5%90%8E%E6%98%9F"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">前杠后星</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%89%8D%E6%98%9F%E5%90%8E%E7%BC%80"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">前星后缀</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8%E9%93%BE"><span class="toc-number">1.5.</span> <span class="toc-text">过滤器链</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.5.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-number">1.5.2.</span> <span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.6.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">1.7.</span> <span class="toc-text">参考</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -366,6 +472,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">过滤器</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
