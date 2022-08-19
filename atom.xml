@@ -6,7 +6,7 @@
   <link href="https://gccforstudy.github.io/atom.xml" rel="self"/>
   
   <link href="https://gccforstudy.github.io/"/>
-  <updated>2022-08-18T13:43:01.534Z</updated>
+  <updated>2022-08-19T12:50:26.592Z</updated>
   <id>https://gccforstudy.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringBoot简介</title>
+    <link href="https://gccforstudy.github.io/2022/08/19/SpringBoot%E7%AE%80%E4%BB%8B/"/>
+    <id>https://gccforstudy.github.io/2022/08/19/SpringBoot%E7%AE%80%E4%BB%8B/</id>
+    <published>2022-08-19T08:35:00.000Z</published>
+    <updated>2022-08-19T12:50:26.592Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="SpringBoot简介"><a href="#SpringBoot简介" class="headerlink" title="SpringBoot简介"></a>SpringBoot简介</h1><blockquote><p>尽管Spring的组件是轻量级的，但它的配置却是重量级的；所以SpringBoot的设计策略是通过<strong>开箱即用</strong>和<strong>约定大于配置</strong> 来解决配置重的问题的。</p></blockquote><span id="more"></span><h2 id="SpringFramework解决了什么问题，没有解决什么问题？"><a href="#SpringFramework解决了什么问题，没有解决什么问题？" class="headerlink" title="SpringFramework解决了什么问题，没有解决什么问题？"></a>SpringFramework解决了什么问题，没有解决什么问题？</h2><h3 id="SpringFramework解决了什么问题？"><a href="#SpringFramework解决了什么问题？" class="headerlink" title="SpringFramework解决了什么问题？"></a>SpringFramework解决了什么问题？</h3><ol><li>使用Spring的IOC容器,将对象之间的依赖关系交给Spring,降低组件之间的耦合性,让我们更专注于应用逻辑 。</li><li>可以提供众多服务,事务管理,WS等。 </li><li>对AOP有很好的支持,方便面向切面编程。 </li><li>对主流的框架提供了很好的集成支持,如Hibernate,Struts2,JPA等。 </li><li>Spring DI机制降低了业务对象替换的复杂性。 </li><li>Spring属于低侵入,代码污染极低。 </li><li>Spring的高度可开放性,并不强制依赖于Spring,开发者可以自由选择Spring部分或全部。</li></ol><h3 id="SpringFramework没有解决了什么问题？"><a href="#SpringFramework没有解决了什么问题？" class="headerlink" title="SpringFramework没有解决了什么问题？"></a>SpringFramework没有解决了什么问题？</h3><p>虽然Spring的组件代码是轻量级的，但它的配置却是重量级的。一开始，Spring用XML配置，而且是很多XML配置。Spring 2.5引入了基于注解的组件扫描，这消除了大量针对应用程序自身组件的显式XML配置。Spring 3.0引入了基于Java的配置，这是一种类型安全的可重构配置方式，可以代替XML。</p><p>所有这些配置都代表了开发时的损耗。因为在思考Spring特性配置和解决业务问题之间需要进行思维切换，所以编写配置挤占了编写应用程序逻辑的时间。和所有框架一样，Spring实用，但与此同时它要求的回报也不少。</p><p>除此之外，项目的依赖管理也是一件耗时耗力的事情。在环境搭建时，需要分析要导入哪些库的坐标，而且还需要分析导入与之有依赖关系的其他库的坐标，一旦选错了依赖的版本，随之而来的不兼容问题就会严重阻碍项目的开发进度。</p><h2 id="SpringBoot的概述"><a href="#SpringBoot的概述" class="headerlink" title="SpringBoot的概述"></a>SpringBoot的概述</h2><h3 id="SpringBoot解决上述Spring的缺点"><a href="#SpringBoot解决上述Spring的缺点" class="headerlink" title="SpringBoot解决上述Spring的缺点"></a>SpringBoot解决上述Spring的缺点</h3><p>SpringBoot对上述Spring的缺点进行的改善和优化，基于约定优于配置的思想，可以让开发人员不必在配置与逻辑业务之间进行思维的切换，全身心的投入到逻辑业务的代码编写中，从而大大提高了开发的效率，一定程度上缩短了项目周期。</p><h3 id="SpringBoot的特点"><a href="#SpringBoot的特点" class="headerlink" title="SpringBoot的特点"></a>SpringBoot的特点</h3><ol><li>为基于Spring的开发提供更快的入门体验</li><li>开箱即用，没有代码生成，也无需XML配置。同时也可以修改默认值来满足特定的需求</li><li>提供了一些大型项目中常见的非功能性特性，如嵌入式服务器、安全、指标，健康检测、外部配置等</li></ol><p>SpringBoot不是对Spring功能上的增强，而是提供了一种快速使用Spring的方式</p><h3 id="SpringBoot的核心功能"><a href="#SpringBoot的核心功能" class="headerlink" title="SpringBoot的核心功能"></a>SpringBoot的核心功能</h3><ul><li><strong>起步依赖</strong> 起步依赖本质上是一个Maven项目对象模型（Project Object Model，POM），定义了对其他库的传递依赖，这些东西加在一起即支持某项功能。</li></ul><p>简单的说，起步依赖就是将具备某种功能的坐标打包到一起，并提供一些默认的功能。</p><ul><li><strong>自动配置</strong></li></ul><p>Spring Boot的自动配置是一个运行时（更准确地说，是应用程序启动时）的过程，考虑了众多因素，才决定Spring配置应该用哪个，不该用哪个。该过程是Spring自动完成的</p><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://spring.io/projects/spring-boot">https://spring.io/projects/spring-boot</a></p><p><a href="https://baike.baidu.com/item/Spring%20Boot/20249767?fr=aladdin">https://baike.baidu.com/item/Spring%20Boot/20249767?fr=aladdin</a></p><p><a href="https://www.jianshu.com/p/24add3c5fedb">https://www.jianshu.com/p/24add3c5fedb</a></p><p><a href="https://www.cnblogs.com/luzhanshi/p/10592209.html">https://www.cnblogs.com/luzhanshi/p/10592209.html</a></p><p><a href="https://pdai.tech/md/spring/springboot/springboot.html">https://pdai.tech/md/spring/springboot/springboot.html</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;SpringBoot简介&quot;&gt;&lt;a href=&quot;#SpringBoot简介&quot; class=&quot;headerlink&quot; title=&quot;SpringBoot简介&quot;&gt;&lt;/a&gt;SpringBoot简介&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;尽管Spring的组件是轻量级的，但它的配置却是重量级的；所以SpringBoot的设计策略是通过&lt;strong&gt;开箱即用&lt;/strong&gt;和&lt;strong&gt;约定大于配置&lt;/strong&gt; 来解决配置重的问题的。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    
+    <category term="SpringBoot" scheme="https://gccforstudy.github.io/tags/SpringBoot/"/>
+    
+  </entry>
   
   <entry>
     <title>Filter</title>
