@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://gccforstudy.github.io">
-  <title>Archives: 2022/8 | gcc的博客</title>
+  <title>SpringBoot-常用注解 | gcc的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="正在努力成为一名优秀的后端工程师">
-<meta property="og:type" content="website">
-<meta property="og:title" content="gcc的博客">
-<meta property="og:url" content="https://gccforstudy.github.io/archives/2022/08/index.html">
+  <meta name="description" content="SpringBoot常用注解 本文主要介绍一些SpringBoot中常用的注解。由于本人的水平有限，不能很详细地进行讲解，只能带大家进行简单的了解。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot-常用注解">
+<meta property="og:url" content="https://gccforstudy.github.io/2022/08/26/SpringBoot-%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/index.html">
 <meta property="og:site_name" content="gcc的博客">
-<meta property="og:description" content="正在努力成为一名优秀的后端工程师">
+<meta property="og:description" content="SpringBoot常用注解 本文主要介绍一些SpringBoot中常用的注解。由于本人的水平有限，不能很详细地进行讲解，只能带大家进行简单的了解。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gccforstudy.github.io/2022/08/26/SpringBoot-%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/.%5CSpringBoot-%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3@EnableAutoConfiguration.jpg">
+<meta property="article:published_time" content="2022-08-26T08:25:07.000Z">
+<meta property="article:modified_time" content="2022-08-26T08:25:07.366Z">
 <meta property="article:author" content="gcc">
-<meta property="article:tag" content="java后端开发">
+<meta property="article:tag" content="SpringBoot">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gccforstudy.github.io/2022/08/26/SpringBoot-%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/.%5CSpringBoot-%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3@EnableAutoConfiguration.jpg">
   
     <link rel="alternative" href="/atom.xml" title="gcc的博客" type="application/atom+xml">
   
@@ -137,36 +141,134 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-SpringBoot-常用注解" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      SpringBoot-常用注解
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/08/26/SpringBoot-%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/" class="archive-article-date">
+
+        
+        <a href="/2022/08/26/SpringBoot-%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/" class="archive-article-date">
   	<time datetime="2022-08-26T08:25:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-26</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/08/26/SpringBoot-%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/">SpringBoot-常用注解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
+        
+      </header>
+      
+        <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+              <span class="btn-bg"></span>
+              <span class="btn-text">文章导航</span>
+              </p>
+      <div id="toc-article" class="toc-article">
+          <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+               <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringBoot%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">SpringBoot常用注解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBootApplication"><span class="toc-number">1.1.</span> <span class="toc-text">@SpringBootApplication</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EnableAutoConfiguration"><span class="toc-number">1.2.</span> <span class="toc-text">@EnableAutoConfiguration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ImportResource"><span class="toc-number">1.3.</span> <span class="toc-text">@ImportResource</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Value"><span class="toc-number">1.4.</span> <span class="toc-text">@Value</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ConfigurationProperties"><span class="toc-number">1.5.</span> <span class="toc-text">@ConfigurationProperties</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EnableConfigurationProperties"><span class="toc-number">1.6.</span> <span class="toc-text">@EnableConfigurationProperties</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RestController"><span class="toc-number">1.7.</span> <span class="toc-text">@RestController</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RequestMapping"><span class="toc-number">1.8.</span> <span class="toc-text">@RequestMapping</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RequestParam"><span class="toc-number">1.9.</span> <span class="toc-text">@RequestParam</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ResponseBody"><span class="toc-number">1.10.</span> <span class="toc-text">@ResponseBody</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bean"><span class="toc-number">1.11.</span> <span class="toc-text">@Bean</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Service"><span class="toc-number">1.12.</span> <span class="toc-text">@Service</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Controller"><span class="toc-number">1.13.</span> <span class="toc-text">@Controller</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Repository"><span class="toc-number">1.14.</span> <span class="toc-text">@Repository</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Componet"><span class="toc-number">1.15.</span> <span class="toc-text">@Componet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PathVariable"><span class="toc-number">1.16.</span> <span class="toc-text">@PathVariable</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ComponentScan"><span class="toc-number">1.17.</span> <span class="toc-text">@ComponentScan</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Autowired"><span class="toc-number">1.18.</span> <span class="toc-text">@Autowired</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Configuration"><span class="toc-number">1.19.</span> <span class="toc-text">@Configuration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Import"><span class="toc-number">1.20.</span> <span class="toc-text">@Import</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Order"><span class="toc-number">1.21.</span> <span class="toc-text">@Order</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ConditionalOnExpression"><span class="toc-number">1.22.</span> <span class="toc-text">@ConditionalOnExpression</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ConditionalOnProperty"><span class="toc-number">1.23.</span> <span class="toc-text">@ConditionalOnProperty</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ConditionalOnClass"><span class="toc-number">1.24.</span> <span class="toc-text">@ConditionalOnClass</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ConditionalOnMisssingClass"><span class="toc-number">1.25.</span> <span class="toc-text">@ConditionalOnMisssingClass</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ConditionOnMissingBean"><span class="toc-number">1.26.</span> <span class="toc-text">@ConditionOnMissingBean</span></a></li></ol></li></ol>
+             </div>
+       <script type="text/javascript">
+      function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+      function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+       </script>
           
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="SpringBoot常用注解"><a href="#SpringBoot常用注解" class="headerlink" title="SpringBoot常用注解"></a>SpringBoot常用注解</h1><blockquote>
+<p>本文主要介绍一些SpringBoot中常用的注解。由于本人的水平有限，不能很详细地进行讲解，只能带大家进行简单的了解。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="SpringBootApplication"><a href="#SpringBootApplication" class="headerlink" title="@SpringBootApplication"></a>@SpringBootApplication</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(ElementType.TYPE)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span></span><br><span class="line"><span class="meta">@ComponentScan</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> SpringBootApplication &#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * Exclude specific auto-configuration classes such that they will never be applied.</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> the classes to exclude</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	Class&lt;?&gt;[] exclude() <span class="keyword">default</span> &#123;&#125;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>定义在main方法入口类处，用于启动sping boot应用项目</p>
+<h2 id="EnableAutoConfiguration"><a href="#EnableAutoConfiguration" class="headerlink" title="@EnableAutoConfiguration"></a>@EnableAutoConfiguration</h2><ul>
+<li><p>@EnableAutoConfiguration也是借助@Import的帮助，将所有符合自动配置条件的bean定义注册到IoC容器。</p>
+</li>
+<li><p>@EnableAutoConfiguration会根据类路径中的jar依赖,为项目进行自动配置，如：添加了spring-boot-starter-web依赖，会自动添加Tomcat和Spring MVC的依赖，Spring Boot会对Tomcat和Spring MVC进行自动配置。</p>
+</li>
+</ul>
+<p>@EnableAutoConfiguration作为一个复合Annotation，其自身定义关键信息如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(ElementType.TYPE)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="meta">@AutoConfigurationPackage</span></span><br><span class="line"><span class="meta">@Import(AutoConfigurationImportSelector.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> EnableAutoConfiguration &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最关键的注解是@Import(EnableAutoConfigurationImportSelector.class)，借助EnableAutoConfigurationImportSelector，@EnableAutoConfiguration可以帮助SpringBoot应用将所有符合条件的@Configuration配置都加载到当前SpringBoot创建并使用的IoC容器。</p>
+<p><img src=".%5CSpringBoot-%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3@EnableAutoConfiguration.jpg"></p>
+<p>SpringFactoriesLoader属于Spring框架私有的一种扩展方案，其主要功能就是从classpath中搜寻所有的META-INF&#x2F;spring.factories配置文件，并将其中org.springframework.boot.autoconfigure.EnableAutoConfiguration对应的配置项通过反射（Java Refletion）实例化为对应的标注了@Configuration的JavaConfig形式的IoC容器配置类，然后汇总为一个并加载到IoC容器。</p>
+<h2 id="ImportResource"><a href="#ImportResource" class="headerlink" title="@ImportResource"></a>@ImportResource</h2><p>加载xml配置，一般放在启动main类上</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ImportResource(&quot;classpath:/spring/*.xml&quot;)</span>  单个</span><br><span class="line"></span><br><span class="line"><span class="meta">@ImportResource(&#123;&quot;classpath:/spring/1.xml&quot;,&quot;classpath*:/spring/2.xml&quot;&#125;)</span>   多个</span><br></pre></td></tr></table></figure>
+
+<h2 id="Value"><a href="#Value" class="headerlink" title="@Value"></a>@Value</h2><p>application.properties定义属性，直接使用@Value注入即可</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">A</span>&#123;</span><br><span class="line">	 <span class="meta">@Value(&quot;$&#123;push.start:0&#125;&quot;)</span>    如果缺失，默认值为<span class="number">0</span></span><br><span class="line">     <span class="keyword">private</span> Long  id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="ConfigurationProperties"><a href="#ConfigurationProperties" class="headerlink" title="@ConfigurationProperties"></a>@ConfigurationProperties</h2><p>将配置文件中指定前缀的属性注入到类中对应的属性中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ConfigurationProperties(prefix=&quot;person&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PersonProperties</span> &#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> String name ;</span><br><span class="line">	<span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">person:</span> </span><br><span class="line">	<span class="attr">name:</span> <span class="string">gcc</span></span><br><span class="line">	<span class="attr">age:</span> <span class="number">24</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="EnableConfigurationProperties"><a href="#EnableConfigurationProperties" class="headerlink" title="@EnableConfigurationProperties"></a>@EnableConfigurationProperties</h2><p>你可以直接在使用@ConfigurationProperties注解使用@Bean注解，将组件注册到IOC容器中，也可以使用@EnableConfigurationProperties将被@ConfigurationProperties注解的类注册到容器中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(ElementType.TYPE)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Import(EnableConfigurationPropertiesRegistrar.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> EnableConfigurationProperties &#123;</span><br><span class="line">	<span class="comment">//写被@ConfigurationProperties注解的类</span></span><br><span class="line">	Class&lt;?&gt;[] value() <span class="keyword">default</span> &#123;&#125;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="RestController"><a href="#RestController" class="headerlink" title="@RestController"></a>@RestController</h2><p>组合@Controller和@ResponseBody，@ResponseBody用于标识一个控制器方法，可以将该方法的返回值直接作为响应报文的响应体响应到浏览器</p>
+<h2 id="RequestMapping"><a href="#RequestMapping" class="headerlink" title="@RequestMapping"></a>@RequestMapping</h2><p>用来映射web请求(访问路径和参数)、处理类和方法，可以注解在类或方法上。注解在方法上的路径会继承注解在类上的路径。</p>
+<p>produces属性: 定制返回的response的媒体类型和字符集，或需返回值是json对象</p>
+<p>consumes属性：要求请求中的媒体类型必须为某种特定的类型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Narrows the primary mapping by media types that can be consumed by the mapped handler.</span></span><br><span class="line">String[] consumes() <span class="keyword">default</span> &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Narrows the primary mapping by media types that can be produced by the mapped handler.</span></span><br><span class="line">String[] produces() <span class="keyword">default</span> &#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="RequestParam"><a href="#RequestParam" class="headerlink" title="@RequestParam"></a>@RequestParam</h2><p>获取request请求体中的参数值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/匹配路径&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">getUser</span><span class="params">(<span class="meta">@RequestParam(value=&quot;username&quot;)</span> String username, <span class="meta">@RequestParam(value=&quot;password&quot;)</span> String password)</span>&#123;</span><br><span class="line">    <span class="comment">//获取请求体中的username和password</span></span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="ResponseBody"><a href="#ResponseBody" class="headerlink" title="@ResponseBody"></a>@ResponseBody</h2><p>支持将返回值放在response体内，而不是返回一个页面。比如Ajax接口，可以用此注解返回数据而不是页面。此注解可以放置在返回值前或方法前。</p>
+<h2 id="Bean"><a href="#Bean" class="headerlink" title="@Bean"></a>@Bean</h2><p>@Bean(name&#x3D;”bean的名字”,initMethod&#x3D;”初始化时调用方法名字”,destroyMethod&#x3D;”close”)</p>
+<p>定义在方法上，在容器内初始化一个bean实例类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean(destroyMethod=&quot;close&quot;)</span></span><br><span class="line"><span class="keyword">public</span> Bean <span class="title function_">registryBean</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Bean</span>();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Service"><a href="#Service" class="headerlink" title="@Service"></a>@Service</h2><p>用于标注业务层组件</p>
+<h2 id="Controller"><a href="#Controller" class="headerlink" title="@Controller"></a>@Controller</h2><p>用于标注控制层组件</p>
+<h2 id="Repository"><a href="#Repository" class="headerlink" title="@Repository"></a>@Repository</h2><p>用于标注数据访问组件，即DAO组件</p>
+<h2 id="Componet"><a href="#Componet" class="headerlink" title="@Componet"></a>@Componet</h2><p>泛指组件，当组件不好归类的时候，我们可以使用这个注解进行标注。</p>
+<h2 id="PathVariable"><a href="#PathVariable" class="headerlink" title="@PathVariable"></a>@PathVariable</h2><p>用来获得请求url中的动态参数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span>  </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestController</span> &#123;  </span><br><span class="line"></span><br><span class="line">     <span class="meta">@RequestMapping(value=&quot;/user/&#123;userId&#125;/roles/&#123;roleId&#125;&quot;,method = RequestMethod.GET)</span>  </span><br><span class="line">     <span class="keyword">public</span> String <span class="title function_">getLogin</span><span class="params">(<span class="meta">@PathVariable(&quot;userId&quot;)</span> String userId,  </span></span><br><span class="line"><span class="params">         <span class="meta">@PathVariable(&quot;roleId&quot;)</span> String roleId)</span>&#123;</span><br><span class="line">           </span><br><span class="line">         System.out.println(<span class="string">&quot;User Id : &quot;</span> + userId);  </span><br><span class="line">         System.out.println(<span class="string">&quot;Role Id : &quot;</span> + roleId);  </span><br><span class="line">         <span class="keyword">return</span> <span class="string">&quot;hello&quot;</span>;  </span><br><span class="line">     </span><br><span class="line">     &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="ComponentScan"><a href="#ComponentScan" class="headerlink" title="@ComponentScan"></a>@ComponentScan</h2><p>注解会告知Spring扫描指定的包来初始化Spring</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ComponentScan(basePackages = &quot;com.gcc.springboot&quot;)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Autowired"><a href="#Autowired" class="headerlink" title="@Autowired"></a>@Autowired</h2><p>在默认情况下使用 @Autowired 注释进行自动注入时，Spring 容器中匹配的候选 Bean 数目必须有且仅有一个。当找不到一个匹配的 Bean 时，Spring 容器将抛出 BeanCreationException 异常，并指出必须至少拥有一个匹配的 Bean。</p>
+<p>当不能确定 Spring 容器中一定拥有某个类的 Bean 时，可以在需要自动注入该类 Bean 的地方可以使用 @Autowired(required &#x3D; false)，这等于告诉 Spring: 在找不到匹配 Bean 时也不报错</p>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="@Configuration"></a>@Configuration</h2><p>将被注解的类设置为配置类，该类中可以使用@Bean注解向IOC容器中放入组件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration(&quot;name&quot;)</span><span class="comment">//表示这是一个配置信息类,可以给这个配置类也起一个名称</span></span><br><span class="line"><span class="meta">@ComponentScan(&quot;spring4&quot;)</span><span class="comment">//类似于xml中的&lt;context:component-scan base-package=&quot;spring&quot;/&gt;</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Config</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span><span class="comment">//自动注入，如果容器中有多个符合的bean时，需要进一步明确</span></span><br><span class="line">    <span class="meta">@Qualifier(&quot;compent&quot;)</span><span class="comment">//进一步指明注入bean名称为compent的bean</span></span><br><span class="line">    <span class="keyword">private</span> Compent compent;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span><span class="comment">//类似于xml中的&lt;bean id=&quot;newbean&quot; class=&quot;spring.Compent&quot;/&gt;</span></span><br><span class="line">    <span class="keyword">public</span> Compent <span class="title function_">newbean</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Compent</span>();</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Import"><a href="#Import" class="headerlink" title="@Import"></a>@Import</h2><p>@Import({xxx.class, xxxx.class})给容器中<strong>自动创建出这两个类型的组件</strong>、默认组件的名字就是全类名</p>
+<h2 id="Order"><a href="#Order" class="headerlink" title="@Order"></a>@Order</h2><p>@Order注解主要用来控制配置类的加载顺序，值越小，优先级越高</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.TYPE, ElementType.METHOD, ElementType.FIELD&#125;)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Order &#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//int LOWEST_PRECEDENCE = Integer.MAX_VALUE;</span></span><br><span class="line">	<span class="type">int</span> <span class="title function_">value</span><span class="params">()</span> <span class="keyword">default</span> Ordered.LOWEST_PRECEDENCE;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="ConditionalOnExpression"><a href="#ConditionalOnExpression" class="headerlink" title="@ConditionalOnExpression"></a>@ConditionalOnExpression</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ConditionalOnExpression(&quot;$&#123;enabled:false&#125;&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BigpipeConfiguration</span> &#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> OrderMessageMonitor <span class="title function_">orderMessageMonitor</span><span class="params">(ConfigContext configContext)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">OrderMessageMonitor</span>(configContext);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>该注解的value属性是SpEL（Spring表达式），如果为true才会加载组件，为false则不会加载组件。对SpEL表达式感兴趣的小伙伴可以自行查阅资料。</p>
+<h2 id="ConditionalOnProperty"><a href="#ConditionalOnProperty" class="headerlink" title="@ConditionalOnProperty"></a>@ConditionalOnProperty</h2><p>SpringBoot中有个注解@ConditionalOnProperty，这个注解能够控制某个configuration是否生效。具体操作是通过其两个属性name以及havingValue来实现的，其中name用来从application.properties中读取某个属性值，如果该值为空，则返回false;如果值不为空，则将该值与havingValue指定的值进行比较，如果一样则返回true;否则返回false。如果返回值为false，则该configuration不生效；为true则生效。</p>
+<p>该注解中的value属性(等同于name属性)用来设置是否包含applicaiton.properties中的某个属性，prefix属性用来设置属性的前缀（例如acme.system.feature)，havingValue属性只有三个值，分别为true、false、foo，关于这个注解的详细解释大家可以自行查看源码。</p>
+<h2 id="ConditionalOnClass"><a href="#ConditionalOnClass" class="headerlink" title="@ConditionalOnClass"></a>@ConditionalOnClass</h2><p>该注解的参数对应的类必须存在，否则不解析该注解修饰的配置类</p>
+<h2 id="ConditionalOnMisssingClass"><a href="#ConditionalOnMisssingClass" class="headerlink" title="@ConditionalOnMisssingClass"></a>@ConditionalOnMisssingClass</h2><p>如果存在它修饰的类的bean，则不需要再创建这个bean</p>
+<h2 id="ConditionOnMissingBean"><a href="#ConditionOnMissingBean" class="headerlink" title="@ConditionOnMissingBean"></a>@ConditionOnMissingBean</h2><p>可以指定当IOC容器中没有何种类型或名字的组件时，@configuration或@Bean注解才会生效（即往IOC容器中放入对应的组件）</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -178,198 +280,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://gccforstudy.github.io/2022/08/26/SpringBoot-%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/08/21/SpringBoot-devtools/" class="archive-article-date">
-  	<time datetime="2022-08-21T02:24:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-21</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2022/08/21/SpringBoot-devtools/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SpringBoot-devtools</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/08/21/SpringBoot-devtools/">SpringBoot-devtools</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">SpringBoot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/08/19/SpringBoot%E7%AE%80%E4%BB%8B/" class="archive-article-date">
-  	<time datetime="2022-08-19T08:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/08/19/SpringBoot%E7%AE%80%E4%BB%8B/">SpringBoot简介</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">SpringBoot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/08/19/Logger/" class="archive-article-date">
-  	<time datetime="2022-08-19T02:29:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/08/19/Logger/">Logger</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日志</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/08/18/Filter/" class="archive-article-date">
-  	<time datetime="2022-08-18T11:41:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/08/18/Filter/">Filter</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">过滤器</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/08/16/hello-world/" class="archive-article-date">
-  	<time datetime="2022-08-16T13:35:21.740Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/08/16/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -392,8 +402,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
