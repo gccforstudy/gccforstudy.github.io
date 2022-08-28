@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://gccforstudy.github.io/2022/08/28/SpringMVC%E8%A7%86%E5%9B%BE%E8%A7%A3%E6%9E%90%E5%99%A8/</loc>
+    <lastmod>2022-08-28</lastmod>
+  </url>
+  <url>
     <loc>https://gccforstudy.github.io/2022/08/26/SpringBoot-%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/</loc>
     <lastmod>2022-08-26</lastmod>
   </url>
