@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://gccforstudy.github.io">
-  <title>Hello World | gcc的博客</title>
+  <title>Java值传递 | gcc的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+  <meta name="description" content="Java值传递在开始讨论值传递之前，我们需要先来了解以下两个概念：  形参&amp;实参 值传递&amp;引用传递">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://gccforstudy.github.io/2022/08/16/hello-world/index.html">
+<meta property="og:title" content="Java值传递">
+<meta property="og:url" content="https://gccforstudy.github.io/2022/09/16/Java%E5%80%BC%E4%BC%A0%E9%80%92/index.html">
 <meta property="og:site_name" content="gcc的博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="Java值传递在开始讨论值传递之前，我们需要先来了解以下两个概念：  形参&amp;实参 值传递&amp;引用传递">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-16T13:35:21.740Z">
-<meta property="article:modified_time" content="2022-08-18T13:44:38.790Z">
+<meta property="article:published_time" content="2022-09-16T07:38:39.000Z">
+<meta property="article:modified_time" content="2022-09-16T07:39:01.829Z">
 <meta property="article:author" content="gcc">
-<meta property="article:tag" content="java后端开发">
+<meta property="article:tag" content="Java值传递机制">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="gcc的博客" type="application/atom+xml">
@@ -139,42 +139,109 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java值传递" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Java值传递
     </h1>
   
 
         
-        <a href="/2022/08/16/hello-world/" class="archive-article-date">
-  	<time datetime="2022-08-16T13:35:21.740Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-16</time>
+        <a href="/2022/09/16/Java%E5%80%BC%E4%BC%A0%E9%80%92/" class="archive-article-date">
+  	<time datetime="2022-09-16T07:38:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-16</time>
 </a>
         
       </header>
       
+        <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+              <span class="btn-bg"></span>
+              <span class="btn-text">文章导航</span>
+              </p>
+      <div id="toc-article" class="toc-article">
+          <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+               <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java%E5%80%BC%E4%BC%A0%E9%80%92"><span class="toc-number">1.</span> <span class="toc-text">Java值传递</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E5%8F%82-amp-%E5%BD%A2%E5%8F%82"><span class="toc-number">1.1.</span> <span class="toc-text">实参&amp;形参</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%80%BC%E4%BC%A0%E9%80%92-amp-%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92"><span class="toc-number">1.2.</span> <span class="toc-text">值传递&amp;引用传递</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88Java%E5%8F%AA%E6%9C%89%E5%80%BC%E4%BC%A0%E9%80%92%EF%BC%9F"><span class="toc-number">1.3.</span> <span class="toc-text">为什么Java只有值传递？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B1%EF%BC%9A%E4%BC%A0%E9%80%92%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0"><span class="toc-number">1.3.1.</span> <span class="toc-text">案例1：传递基本类型参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B2%EF%BC%9A%E4%BC%A0%E9%80%92%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B01"><span class="toc-number">1.3.2.</span> <span class="toc-text">案例2：传递引用类型参数1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B3%EF%BC%9A%E4%BC%A0%E9%80%92%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B02"><span class="toc-number">1.3.3.</span> <span class="toc-text">案例3：传递引用类型参数2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">1.5.</span> <span class="toc-text">参考</span></a></li></ol></li></ol>
+             </div>
+       <script type="text/javascript">
+      function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+      function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+       </script>
+          
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+        <h1 id="Java值传递"><a href="#Java值传递" class="headerlink" title="Java值传递"></a>Java值传递</h1><p>在开始讨论值传递之前，我们需要先来了解以下两个概念：</p>
+<ul>
+<li>形参&amp;实参</li>
+<li>值传递&amp;引用传递</li>
+</ul>
 <span id="more"></span>
 
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="实参-amp-形参"><a href="#实参-amp-形参" class="headerlink" title="实参&amp;形参"></a>实参&amp;形参</h2><p>方法的定义可能会用到 <strong>参数</strong>（有参的方法），参数在程序语言中分为：</p>
+<ul>
+<li><strong>实参（实际参数）</strong> ：用于传递给函数&#x2F;方法的参数，必须有确定的值。</li>
+<li><strong>形参（形式参数）</strong> ：用于定义函数&#x2F;方法，接收实参，不需要有确定的值</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//str形参</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">helloWorld</span><span class="params">(String str)</span>&#123;</span><br><span class="line">    System.out.println(str);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">helloWorld</span> <span class="operator">=</span> <span class="string">&quot;hello, world!&quot;</span>;</span><br><span class="line">    <span class="comment">//helloWorld为实参</span></span><br><span class="line">    helloWorld(helloWorld);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h2 id="值传递-amp-引用传递"><a href="#值传递-amp-引用传递" class="headerlink" title="值传递&amp;引用传递"></a>值传递&amp;引用传递</h2><p>程序设计语言将实参传递给方法（或函数）的方式分为两种：</p>
+<ul>
+<li><strong>值传递</strong> ：是指在调用函数时将实际参数复制一份传递到函数中，这样在函数中如果对参数进行修改，将不会影响到实际参数。</li>
+<li><strong>引用传递</strong> ：是指在调用函数时将实际参数的地址直接传递到函数中，那么在函数中对参数所进行的修改，将影响到实际参数。</li>
+</ul>
+<p>很多程序设计语言（比如 C++、 Pascal )提供了两种参数传递的方式，不过，在 Java 中只有值传递。</p>
+<h2 id="为什么Java只有值传递？"><a href="#为什么Java只有值传递？" class="headerlink" title="为什么Java只有值传递？"></a>为什么Java只有值传递？</h2><p>下面我想通过三个例子来说明Java为什么只有值传递。</p>
+<h3 id="案例1：传递基本类型参数"><a href="#案例1：传递基本类型参数" class="headerlink" title="案例1：传递基本类型参数"></a>案例1：传递基本类型参数</h3><p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">       <span class="type">int</span> <span class="variable">num1</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">       <span class="type">int</span> <span class="variable">num2</span> <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line">       swap(num1, num2);</span><br><span class="line">       System.out.println(<span class="string">&quot;num1 = &quot;</span> + num1);</span><br><span class="line">       System.out.println(<span class="string">&quot;num2 = &quot;</span> + num2);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> &#123;</span><br><span class="line">       <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> a;</span><br><span class="line">       a = b;</span><br><span class="line">       b = temp;</span><br><span class="line">       System.out.println(<span class="string">&quot;a = &quot;</span> + a);</span><br><span class="line">       System.out.println(<span class="string">&quot;b = &quot;</span> + b);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">2</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line">num1 = <span class="number">1</span></span><br><span class="line">num2 = <span class="number">2</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>解析：</p>
+<p>在 <code>swap()</code> 方法中，<code>a</code>、<code>b</code> 的值进行交换，并不会影响到 <code>num1</code>、<code>num2</code>。因为，<code>a</code>、<code>b</code> 的值，只是从 <code>num1</code>、<code>num2</code> 的复制过来的。也就是说，a、b 相当于 <code>num1</code>、<code>num2</code> 的副本，副本的内容无论怎么修改，都不会影响到原件本身。</p>
+<p>通过上面例子，我们已经知道了一个方法不能修改一个基本数据类型的参数，而对象引用作为参数就不一样，请看案例2。</p>
+<h3 id="案例2：传递引用类型参数1"><a href="#案例2：传递引用类型参数1" class="headerlink" title="案例2：传递引用类型参数1"></a>案例2：传递引用类型参数1</h3><p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">     <span class="type">int</span>[] arr = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;;</span><br><span class="line">     System.out.println(<span class="string">&quot;before : arr[3] = &quot;</span> + arr[<span class="number">3</span>]);</span><br><span class="line">     change(arr);</span><br><span class="line">     System.out.println(<span class="string">&quot;after : arr[3] = &quot;</span> + arr[<span class="number">3</span>]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">change</span><span class="params">(<span class="type">int</span>[] arr)</span> &#123;</span><br><span class="line">     <span class="comment">// 将数组的第一个元素变为0</span></span><br><span class="line">     arr[<span class="number">3</span>] = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">before : arr[<span class="number">3</span>] = <span class="number">3</span></span><br><span class="line">after : arr[<span class="number">3</span>] = <span class="number">0</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>解析：</p>
+<p>看了这个案例很多人肯定觉得 Java 对引用类型的参数采用的是引用传递。</p>
+<p>实际上，并不是的，这里传递的还是值，不过，这个值是实参的地址罢了！</p>
+<p>也就是说 <code>change</code> 方法的参数拷贝的是 <code>arr</code> （实参）的地址，因此，它和 <code>arr</code> 指向的是同一个数组对象。这也就说明了为什么方法内部对形参的修改会影响到实参。</p>
+<p>为了更强有力地反驳 Java 对引用类型的参数采用的不是引用传递，我们再来看下面这个案例！</p>
+<h3 id="案例3：传递引用类型参数2"><a href="#案例3：传递引用类型参数2" class="headerlink" title="案例3：传递引用类型参数2"></a>案例3：传递引用类型参数2</h3><p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Dog</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">   <span class="comment">// 省略构造函数、Getter&amp;Setter方法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Person</span> <span class="variable">dog11</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>(<span class="string">&quot;柯基&quot;</span>);</span><br><span class="line">    <span class="type">Person</span> <span class="variable">dog22</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>(<span class="string">&quot;金毛&quot;</span>);</span><br><span class="line">    swap(dog1, dog2);</span><br><span class="line">    System.out.println(<span class="string">&quot;dog11:&quot;</span> + dog1.getName());</span><br><span class="line">    System.out.println(<span class="string">&quot;dog22:&quot;</span> + dog2.getName());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(Dog dog1, Dog dog2)</span> &#123;</span><br><span class="line">    <span class="type">Dog</span> <span class="variable">temp</span> <span class="operator">=</span> dog1;</span><br><span class="line">    dog1 = dog2;</span><br><span class="line">    dog2 = temp;</span><br><span class="line">    System.out.println(<span class="string">&quot;dog1:&quot;</span> + dog1.getName());</span><br><span class="line">    System.out.println(<span class="string">&quot;dog2:&quot;</span> + dog2.getName());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dog1:金毛</span><br><span class="line">dog2:柯基</span><br><span class="line">dog11:柯基</span><br><span class="line">dog22:金毛</span><br></pre></td></tr></table></figure>
+
+<p>解析：</p>
+<p><code>swap</code> 方法的参数 <code>dog1</code> 和 <code>dog2</code> 只是拷贝的实参 <code>dog11</code> 和 <code>dog22</code> 的地址。因此， <code>dog1</code> 和 <code>dog2</code> 互换只是拷贝的两个地址的互换罢了，并不会影响到实参 <code>dog11</code> 和 <code>dog22</code> 。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Java 中将实参传递给方法（或函数）的方式是 <strong>值传递</strong> ：</p>
+<ul>
+<li>如果参数是基本类型的话，很简单，传递的就是基本类型的字面量值的拷贝，会创建副本。</li>
+<li>如果参数是引用类型，传递的就是实参所引用的对象在堆中地址值的拷贝，同样也会创建副本。</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li>《Java 核心技术卷 Ⅰ》基础知识第十版第四章 4.5 小节</li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/31203609/answer/576030121">Java 到底是值传递还是引用传递？ - Hollis的回答 - 知乎</a></li>
+<li><a target="_blank" rel="noopener" href="https://javaguide.cn/java/basis/why-there-only-value-passing-in-java.html#%E5%BD%A2%E5%8F%82-%E5%AE%9E%E5%8F%82">为什么Java中只有值传递？</a></li>
+</ul>
 
       
 
@@ -183,6 +250,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java值传递机制</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -233,7 +311,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://gccforstudy.github.io/2022/08/16/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://gccforstudy.github.io/2022/09/16/Java%E5%80%BC%E4%BC%A0%E9%80%92/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -247,15 +325,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/08/18/Filter/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Filter
-        
-      </div>
-    </a>
   
+    <a href="/2022/09/04/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">正则表达式</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
