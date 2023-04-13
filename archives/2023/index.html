@@ -6,27 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://gccforstudy.github.io">
-  <title>JAVA对象头与锁优化 | gcc的博客</title>
+  <title>Archives: 2023 | gcc的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JAVA对象头与锁优化在HotSpot虚拟机里，对象在堆内存中的存储布局可以划分为三个部分：对象头（Header）、实例数据（Instance Data）和对齐填充（Padding）。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="JAVA对象头与锁优化">
-<meta property="og:url" content="https://gccforstudy.github.io/2022/11/20/JVM%E5%AF%B9%E8%B1%A1%E5%A4%B4/index.html">
+  <meta name="description" content="正在努力成为一名优秀的后端工程师">
+<meta property="og:type" content="website">
+<meta property="og:title" content="gcc的博客">
+<meta property="og:url" content="https://gccforstudy.github.io/archives/2023/index.html">
 <meta property="og:site_name" content="gcc的博客">
-<meta property="og:description" content="JAVA对象头与锁优化在HotSpot虚拟机里，对象在堆内存中的存储布局可以划分为三个部分：对象头（Header）、实例数据（Instance Data）和对齐填充（Padding）。">
+<meta property="og:description" content="正在努力成为一名优秀的后端工程师">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://gccforstudy.github.io/2022/11/20/JVM%E5%AF%B9%E8%B1%A1%E5%A4%B4/MarkWord.jpg">
-<meta property="og:image" content="https://gccforstudy.github.io/2022/11/20/JVM%E5%AF%B9%E8%B1%A1%E5%A4%B4/LockRecord.jpg">
-<meta property="og:image" content="https://gccforstudy.github.io/2022/11/20/JVM%E5%AF%B9%E8%B1%A1%E5%A4%B4/LockRecord2.jpg">
-<meta property="og:image" content="https://gccforstudy.github.io/2022/11/20/JVM%E5%AF%B9%E8%B1%A1%E5%A4%B4/%E9%94%81%E8%BD%AC%E5%8C%96%E5%85%B3%E7%B3%BB%E5%9B%BE.jpg">
-<meta property="og:image" content="https://wiki.openjdk.org/download/attachments/11829266/Synchronization.gif?version=4&modificationDate=1208918680000&api=v2">
-<meta property="article:published_time" content="2022-11-20T00:49:59.000Z">
-<meta property="article:modified_time" content="2022-11-20T01:33:05.832Z">
 <meta property="article:author" content="gcc">
-<meta property="article:tag" content="JAVA对象头">
-<meta property="article:tag" content="锁优化">
+<meta property="article:tag" content="java后端开发">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gccforstudy.github.io/2022/11/20/JVM%E5%AF%B9%E8%B1%A1%E5%A4%B4/MarkWord.jpg">
   
     <link rel="alternative" href="/atom.xml" title="gcc的博客" type="application/atom+xml">
   
@@ -146,268 +137,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JVM对象头" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      JAVA对象头与锁优化
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2023" class="archive-year">2023</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-drafts">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2023/04/13/C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%83%B3/" class="archive-article-date">
+  	<time datetime="2023-04-13T02:14:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-13</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2023/04/13/C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%83%B3/">C程序设计语言学习感想</a>
     </h1>
   
 
-        
-        <a href="/2022/11/20/JVM%E5%AF%B9%E8%B1%A1%E5%A4%B4/" class="archive-article-date">
-  	<time datetime="2022-11-20T00:49:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-20</time>
-</a>
-        
-      </header>
-      
-        <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-              <span class="btn-bg"></span>
-              <span class="btn-text">文章导航</span>
-              </p>
-      <div id="toc-article" class="toc-article">
-          <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-        <strong class="toc-title">文章目录</strong>
-               <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JAVA%E5%AF%B9%E8%B1%A1%E5%A4%B4%E4%B8%8E%E9%94%81%E4%BC%98%E5%8C%96"><span class="toc-number">1.</span> <span class="toc-text">JAVA对象头与锁优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JAVA%E5%AF%B9%E8%B1%A1%E5%A4%B4"><span class="toc-number">1.1.</span> <span class="toc-text">JAVA对象头</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Mark-Word"><span class="toc-number">1.1.1.</span> <span class="toc-text">Mark Word</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Klass-pointer"><span class="toc-number">1.1.2.</span> <span class="toc-text">Klass pointer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%E6%95%B0%E6%8D%AE"><span class="toc-number">1.2.</span> <span class="toc-text">实例数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E9%BD%90%E5%A1%AB%E5%85%85"><span class="toc-number">1.3.</span> <span class="toc-text">对齐填充</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%94%81%E4%BC%98%E5%8C%96"><span class="toc-number">1.4.</span> <span class="toc-text">锁优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E6%97%8B%E9%94%81%E4%B8%8E%E8%87%AA%E9%80%82%E5%BA%94%E8%87%AA%E6%97%8B%E9%94%81"><span class="toc-number">1.4.1.</span> <span class="toc-text">自旋锁与自适应自旋锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%81%E6%B6%88%E9%99%A4"><span class="toc-number">1.4.2.</span> <span class="toc-text">锁消除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%81%E7%B2%97%E5%8C%96"><span class="toc-number">1.4.3.</span> <span class="toc-text">锁粗化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%BB%E9%87%8F%E7%BA%A7%E9%94%81"><span class="toc-number">1.4.4.</span> <span class="toc-text">轻量级锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%8F%E5%90%91%E9%94%81"><span class="toc-number">1.4.5.</span> <span class="toc-text">偏向锁</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Synchronization-and-Object-Locking"><span class="toc-number">2.</span> <span class="toc-text">Synchronization and Object Locking</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Source-Code-Hints"><span class="toc-number">2.0.1.</span> <span class="toc-text">Source Code Hints</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#References"><span class="toc-number">2.0.2.</span> <span class="toc-text">References</span></a></li></ol></li></ol></li></ol>
-             </div>
-       <script type="text/javascript">
-      function showToc(){
-        var toc_article = document.getElementById("toc-article");
-        var show_toc_btn = document.getElementById("show-toc-btn");
-        toc_article.setAttribute("style","display:block");
-        show_toc_btn.setAttribute("style","display:none");
-        };
-      function showBtn(){
-        var toc_article = document.getElementById("toc-article");
-        var show_toc_btn = document.getElementById("show-toc-btn");
-        toc_article.setAttribute("style","display:none");
-        show_toc_btn.setAttribute("style","display:block");
-        };
-       </script>
+        <div class="article-info info-on-right">
           
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JAVA对象头与锁优化"><a href="#JAVA对象头与锁优化" class="headerlink" title="JAVA对象头与锁优化"></a>JAVA对象头与锁优化</h1><p>在HotSpot虚拟机里，对象在堆内存中的存储布局可以划分为三个部分：<strong>对象头</strong>（Header）、<strong>实例数据</strong>（Instance Data）和<strong>对齐填充</strong>（Padding）。</p>
-<span id="more"></span>
-
-<h2 id="JAVA对象头"><a href="#JAVA对象头" class="headerlink" title="JAVA对象头"></a>JAVA对象头</h2><h3 id="Mark-Word"><a href="#Mark-Word" class="headerlink" title="Mark Word"></a>Mark Word</h3><p>HotSpot虚拟机对象的对象头部分包括两类信息。第一类是用于存储对象自身的运行时数据，如哈希码、GC分代年龄、锁状态标志、线程持有的锁、偏向线程ID、偏向时间戳等，，这部分数据的长度在32位和64位的虚拟机（未开启压缩指针）中分别位32个比特和64个比特，官方称它为“Mark Word”。对象需要存储的运行时数据很多，其实已经超出了32、64位Bitmap所能记录的最大限度，但对象头里的信息是与对象自身定义的数据无关的额外存储成本，考虑到虚拟机的空间效率，Mark Word被设计成一个<strong>有着动态定义的数据结构</strong>（当Mark Word的锁状态标志位处于不同的状态时，Mark Word的结构是不一样的），以便在极小的空间内存储尽量多的数据，根据对象的状态复用自己的存储空间。例如32位的HotSpot虚拟机中，如对象未被同步锁锁定的状态下，Mark Word的32个比特存储空间的25个比特用于存储对象的HashCode，4个比特用于存储对象分代年龄，2个比特用于存储锁标志位，1个比特固定为0，在其他状态（轻量级锁定、重量级锁定、GC标记、可偏向）下对象的存储内容如下表所示。</p>
-<table>
-<thead>
-<tr>
-<th>存储内容</th>
-<th>标志位</th>
-<th>状态</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>对象哈希码、对象分代年龄</td>
-<td>01</td>
-<td>未锁定</td>
-</tr>
-<tr>
-<td>指向锁记录的指针</td>
-<td>00</td>
-<td>轻量级锁定</td>
-</tr>
-<tr>
-<td>指向重量级锁的指针</td>
-<td>10</td>
-<td>重量级锁定</td>
-</tr>
-<tr>
-<td>空，不需要记录信息</td>
-<td>11</td>
-<td>GC标记</td>
-</tr>
-<tr>
-<td>偏向锁ID、偏向时间戳、对象分代年龄</td>
-<td>01</td>
-<td>可偏向</td>
-</tr>
-</tbody></table>
-<h3 id="Klass-pointer"><a href="#Klass-pointer" class="headerlink" title="Klass pointer"></a>Klass pointer</h3><p>对象头的另外一部分是<strong>类型指针</strong>（klass pointer），即对象指向它的类型元数据的指针，Java虚拟机通过这个指针来确定该对象是哪个类的实例。并不是所有的虚拟机实现都必须在对象数据上保留类型指针，换句话说，查找对象的元数据信息并不一定经过对象本身。此外，如果对象是一个Java数组，那么在对象头中还必须有一块用于记录数组长度的数据，因为虚拟机可以通过普通Java对象的元数据信息确定Java对象的大小，但是如果数组的长度是不确定的，将无法通过元数据中的信息推断出数组的大小。</p>
-<p>klass pointer在32位的虚拟机中占32位，在64位的虚拟机中占64位，但是在64位的虚拟机中该地址也可以被编码为32位。这项优化被称为“compressed oops”，你可以使用UseCompressedOops虚拟机参数来控制是否使用这项优化。详见 <a target="_blank" rel="noopener" href="https://wiki.openjdk.java.net/display/HotSpot/CompressedOops%E3%80%82">https://wiki.openjdk.java.net/display/HotSpot/CompressedOops。</a></p>
-<h2 id="实例数据"><a href="#实例数据" class="headerlink" title="实例数据"></a>实例数据</h2><p>接下来实例数据部分是真正存储的有效信息，即我们在程序代码里面所定义的各种类型的字段内容，无论是从父类继承下来的，还是在子类中定义的字段都必须记录起来。这部分的存储顺序会受到虚拟机分配策略参数（-XX：FieldsAllocationStyle参数）和字段在Java源码中定义的顺序的影响。HotSpot虚拟机默认的分配顺序位longs&#x2F;doubles、ints、shorts&#x2F;chars、bytes&#x2F;booleans、oops（Ordinary Object Pointers， OOPs），从以上的默认分配策略中可以看到，相同的宽度的字段总是被分配到一起存放，在满足这个前提的条件的情况下，在父类中定义的变量会出现在子类之前。（如果HotSpot虚拟机的-XX：CompactFields参数值为true（默认就为true），那子类之中较窄的变量也允许插入父类变量的空隙之中，以节省出一点点空间。）</p>
-<h2 id="对齐填充"><a href="#对齐填充" class="headerlink" title="对齐填充"></a>对齐填充</h2><p>对象的第三部分是<strong>对齐填充</strong>，这并不是必然存在的，也没有特别的含义，它仅仅起着占位符的作用。由于HotSpot虚拟机的自动内存管理系统要求对象起始地址必须是8字节的整数倍，换句话说就是任何对象的大小都必须是8字节的整数倍。对象头部分已经被精心设计成正好是8字节的倍数（1倍或者2倍），因此，如果对象实例数据部分没有对齐的话，就需要通过对齐填充来补全。</p>
-<h2 id="锁优化"><a href="#锁优化" class="headerlink" title="锁优化"></a>锁优化</h2><p>为何要在讲解对象头的内容时将锁优化的内容插入进来呢？因为Mark Word与锁优化息息相关。</p>
-<h3 id="自旋锁与自适应自旋锁"><a href="#自旋锁与自适应自旋锁" class="headerlink" title="自旋锁与自适应自旋锁"></a>自旋锁与自适应自旋锁</h3><p>互斥同步对性能最大的影响是阻塞的实现，挂起线程和恢复线程的操作都需要转入内核态中完成，这些操作给Java虚拟机的并发性能带来了很大的压力。同时，虚拟机的开发团队也注意到在许多应用上，<strong>共享数据的锁定状态只会持续很短的一段时间</strong>，为了这段时间去挂起和恢复线程并不值得。现在绝大多数的个人电脑和服务器都是多路（核）处理器系统，如果物理机器有一个以上的处理器或者处理器核心，能让两个或以上的线程同时并行执行，我们就可以让后面请求锁的那个线程“稍等一会”，但不放弃处理器的执行时间，看看持有锁的线程是否很快就会释放锁。为了让线程等待，我们只须让线程执行一个<strong>忙循环（自旋）</strong>，这项技术就是所谓的<strong>自旋锁</strong>。</p>
-<p>自旋锁在JDK 1.4.2中就已经引入，只不过默认是关闭的，可以使用-XX：+UseSpinning参数来开启，在JDK 6中就已经改为默认开启了。自旋等待不能代替阻塞，且先不说对处理器数量的要求，自旋等待本身虽然避免了线程切换的开销，但它是要占用处理器时间的，<strong>所以如果锁被占用的时间很短，自旋等待的效果就会非常好，反之如果锁被占用的时间很长，那么自旋的线程只会白白消耗处理器资源，而不会做任何有价值的工作</strong>，这就会带来性能的浪费。因此自旋等待的时间必须有一定的限度，如果自旋超过了限定的次数仍然没有成功获得锁，就应当使用传统的方式去挂起线程。自旋次数的默认值是十次，用户也可以使用参数-XX：PreBlockSpin来自行更改。</p>
-<p>不过无论是默认值还是用户指定的自旋次数，对整个Java虚拟机中所有的锁来说都是相同的。<strong>在JDK 6中对自旋锁的优化，引入了自适应的自旋。</strong>自适应意味着自旋的时间不再是固定的了，而是由前一次在同一个锁上的自旋时间及锁的拥有者的状态来决定的。<strong>如果在同一个锁对象上，自旋等待刚刚成功获得过锁，并且持有锁的线程正在运行中，那么虚拟机就会认为这次自旋也很有可能再次成功，进而允许自旋等待持续相对更长的时间，比如持续100次忙循环。另一方面，如果对于某个锁，自旋很少成功获得过锁，那在以后要获取这个锁时将有可能直接省略掉自旋过程，以避免浪费处理器资源。</strong>有了自适应自旋，随着程序运行时间的增长及性能监控信息的不断完善，虚拟机对程序锁的状况<br>预测就会越来越精准，虚拟机就会变得越来越“聪明”了。</p>
-<h3 id="锁消除"><a href="#锁消除" class="headerlink" title="锁消除"></a>锁消除</h3><p>锁消除是指虚拟机即时编译器在运行时，对一些代码要求同步，但是对被检测到不可能存在共享数据竞争的锁进行消除。锁消除的主要判定依据来源于逃逸分析的数据支持，如果判断到一段代码中，在堆上的所有数据都不会逃逸出去被其他线程访问到，那就可以把它们当作栈上数据对待，认为它们是线程私有的，同步加锁自然就无须再进行。</p>
-<h3 id="锁粗化"><a href="#锁粗化" class="headerlink" title="锁粗化"></a>锁粗化</h3><p>原则上，我们在编写代码的时候，总是推荐将同步块的作用范围限制得尽量小——只在共享数据的实际作用域中才进行同步，这样是为了使得需要同步的操作数量尽可能变少，即使存在锁竞争，等待锁的线程也能尽可能快地拿到锁。</p>
-<p>大多数情况下，上面的原则都是正确的，但是如果一系列的连续操作都对同一个对象反复加锁和解锁，甚至加锁操作是出现在循环体之中的，那即使没有线程竞争，频繁地进行互斥同步操作也会导致不必要的性能损耗。</p>
-<h3 id="轻量级锁"><a href="#轻量级锁" class="headerlink" title="轻量级锁"></a>轻量级锁</h3><p>轻量级锁是JDK 6时加入的新型锁机制，它名字中的“轻量级”是相对于使用操作系统互斥量来实现的传统锁而言的，因此传统的锁机制就被称为“重量级”锁。不过，需要强调一点，<strong>轻量级锁并不是用来代替重量级锁的，它设计的初衷是在没有多线程竞争的前提下，减少传统的重量级锁使用操作系统互斥量产生的性能消耗</strong>。</p>
-<p>要理解轻量级锁，以及后面会讲到的偏向锁的原理和运作过程，必须要对HotSpot虚拟机对象的内存布局（尤其是对象头部分）有所了解。HotSpot虚拟机的对象头（Object Header）分为两部分，第一部分用于存储对象自身的运行时数据，如哈希码（HashCode）、GC分代年龄（Generational GC Age）等。这部分数据的长度在32位和64位的Java虚拟机中分别会占用32个或64个比特，官方称它为“Mark Word”。<strong>这部分是实现轻量级锁和偏向锁的关键</strong>。另外一部分用于存储指向方法区对象类型数据的指针，如果是数组对象，还会有一个额外的部分用于存储数组长度。这部分知识我们在文章的<a href="#JAVA%E5%AF%B9%E8%B1%A1%E5%A4%B4">JAVA对象头</a>已经介绍过了。</p>
-<p>由于对象头信息是与对象自身定义的数据无关的额外存储成本，<strong>考虑到Java虚拟机的空间使用效率，Mark Word被设计成一个非固定的动态数据结构</strong>，以便在极小的空间内存储尽量多的信息。它会根据对象的状态复用自己的存储空间。例如在32位的HotSpot虚拟机中，对象未被锁定的状态下，Mark Word的32个比特空间里的25个比特将用于存储对象哈希码，4个比特用于存储对象分代年龄，2个比特用于存储锁标志位，还有1个比特固定为0（这表示未进入偏向模式）。对象除了未被锁定的正常状态外，还有轻量级锁定、重量级锁定、GC标记、可偏向等几种不同状态，这些状态下对象头的存储内容如下表所示。</p>
-<p><img src="MarkWord.jpg"></p>
-<p>我们简单回顾了对象的内存布局后，接下来就可以介绍轻量级锁的工作过程了：在代码即将进入同步块的时候，如果此同步对象没有被锁定（锁标志位为“01”状态），<strong>虚拟机首先将在当前线程的栈帧中建立一个名为锁记录（Lock Record）的空间</strong>，<strong>用于存储锁对象目前的Mark Word的拷贝</strong>（官方为这份拷贝加了一个Displaced前缀，即Displaced Mark Word），这时候线程堆栈与对象头的状态如下图所示。</p>
-<p><img src="LockRecord.jpg"></p>
-<p>Lock Record包含一个displaced header reference用于替换对象头中的Mark Word和一个指向被上锁的对象的指针。</p>
-<p>然后，虚拟机将使用CAS操作尝试把对象的Mark Word更新为指向Lock Record的指针。如果这个更新动作成功了，即代表该线程拥有了这个对象的锁，并且对象Mark Word的锁标志位（Mark Word的最后两个比特）将转变为“00”，表示此对象处于轻量级锁定状态。这时候线程堆栈与对象头的状态如图下图所示。</p>
-<p><img src="LockRecord2.jpg"></p>
-<p>如果这个更新操作失败了，那就意味着至少存在一条线程与当前线程竞争获取该对象的锁。虚拟机首先会检查对象的Mark Word是否指向<strong>当前线程的栈帧</strong>，如果是，说明当前线程已经拥有了这个对象的锁，那直接进入同步块继续执行就可以了，否则就说明这个锁对象已经被其他线程抢占了。<strong>如果出现两条以上的线程争用同一个锁的情况，那轻量级锁就不再有效，必须要膨胀为重量级锁，锁标志的状态值变为“10”，此时Mark Word中存储的就是指向重量级锁（互斥量）的指针，</strong>后面等待锁的线程也必须进入阻塞状态。</p>
-<p>上面描述的是轻量级锁的加锁过程，它的解锁过程也同样是通过CAS操作来进行的，如果对象的Mark Word仍然指向线程的锁记录，那就用CAS操作把对象当前的Mark Word和线程中复制的DisplacedMark Word替换回来。假如能够成功替换，那整个同步过程就顺利完成了；如果替换失败，则说明有其他线程尝试过获取该锁，就要在释放锁的同时，唤醒被挂起的线程。（如果替换失败，则说明轻量级锁已经膨胀为重量级锁，现在mark word存的是指向重量级锁的指针）。</p>
-<p>轻量级锁能提升程序同步性能的依据是“对于绝大部分的锁，在整个同步周期内都是不存在竞争的”这一经验法则。如果没有竞争，轻量级锁便通过CAS操作成功避免了使用互斥量的开销；但如果确实存在锁竞争，除了互斥量的本身开销外，还额外发生了CAS操作的开销。因此在有竞争的情况下，轻量级锁反而会比传统的重量级锁更慢。</p>
-<h3 id="偏向锁"><a href="#偏向锁" class="headerlink" title="偏向锁"></a>偏向锁</h3><p>偏向锁也是JDK 6中引入的一项锁优化措施，它的目的是消除数据在<strong>无竞争情况下</strong>的同步原语，进一步提高程序的运行性能。如果说轻量级锁是在无竞争的情况下使用CAS操作去消除同步使用的互斥量，那偏向锁就是在无竞争的情况下<strong>把整个同步都消除掉，连CAS操作都不去做了。</strong></p>
-<p>偏向锁中的“偏”，就是偏心的“偏”、偏袒的“偏”。它的意思是这个锁会偏向于第一个获得它的线程，如果在接下来的执行过程中，该锁一直没有被其他的线程获取，则持有偏向锁的线程将永远不需要再进行同步。</p>
-<p>如果读者理解了前面轻量级锁中关于对象头Mark Word与线程之间的操作过程，那偏向锁的原理就会很容易理解。假设当前虚拟机启用了偏向锁（启用参数-XX：+UseBiased Locking，这是自JDK 6起HotSpot虚拟机的默认值），那么当锁对象第一次被线程获取的时候，虚拟机将会把对象头中的标志位设置为“01”、把偏向模式设置为“1”，表示进入偏向模式。同时使用CAS操作把获取到这个锁的线程的ID记录在对象的Mark Word之中。如果CAS操作成功，持有偏向锁的线程以后每次进入这个锁相关的同步块时，虚拟机都可以不再进行任何同步操作（例如加锁、解锁及对Mark Word的更新操作等）。</p>
-<p>一旦出现另外一个线程去尝试获取这个锁的情况，偏向模式就马上宣告结束。根据锁对象目前是否处于被锁定的状态决定是否撤销偏向（偏向模式设置为“0”），撤销后标志位恢复到未锁定（标志位为“01”）或轻量级锁定（标志位为“00”）的状态，后续的同步操作就按照上面介绍的轻量级锁那样去执行。偏向锁、轻量级锁的状态转化及对象Mark Word的关系如下图所示。</p>
-<p><img src="%E9%94%81%E8%BD%AC%E5%8C%96%E5%85%B3%E7%B3%BB%E5%9B%BE.jpg"></p>
-<p>细心的读者看到这里可能会发现一个问题：当对象进入偏向状态的时候，Mark Word大部分的空间（23个比特）都用于存储持有锁的线程ID了，这部分空间占用了原有存储对象哈希码的位置，那原来对象的哈希码怎么办呢？</p>
-<p>在Java语言里面一个对象如果计算过哈希码，就应该一直保持该值不变（强烈推荐但不强制，因为用户可以重载hashCode()方法按自己的意愿返回哈希码），否则很多依赖对象哈希码的API都可能存在出错风险。而作为绝大多数对象哈希码来源的Object::hashCode()方法，返回的是对象的一致性哈希码（Identity Hash Code），这个值是能强制保证不变的，它通过在对象头中存储计算结果来保证第一次计算之后，再次调用该方法取到的哈希码值永远不会再发生改变。因此，当一个对象已经计算过一致性哈希码后，它就再也无法进入偏向锁状态了；<strong>而当一个对象当前正处于偏向锁状态，又收到需要计算其一致性哈希码请求时，它的偏向状态会被立即撤销，并且锁会膨胀为重量级锁。</strong>在重量级锁的实现中，对象头指向了重量级锁的位置，代表重量级锁的ObjectMonitor类里有字段可以记录非加锁状态（标志位为“01”）下的Mark Word，其中自然可以存储原来的哈希码。</p>
-<p>偏向锁可以提高带有同步但无竞争的程序性能，但它同样是一个带有效益权衡（Trade Off）性质的优化，也就是说它并非总是对程序运行有利。如果程序中大多数的锁都总是被多个不同的线程访问，那偏向模式就是多余的。在具体问题具体分析的前提下，有时候使用参数-XX：-UseBiasedLocking来禁止偏向锁优化反而可以提升性能。</p>
-<p>下面是我将OpenJDK官网关于同步与对象头的原文摘抄过来的，是为了记录自己的学习成果，如果读者想要更加深入地了解JAVA的同步机制，建议各位读者去OpenJDK官网寻找自己想要了解的内容。</p>
-<h1 id="Synchronization-and-Object-Locking"><a href="#Synchronization-and-Object-Locking" class="headerlink" title="Synchronization and Object Locking"></a>Synchronization and Object Locking</h1><p><em>Written by Thomas Kotzmann and Christian Wimmer</em></p>
-<p>One of the major strengths of the Java programming language is its built-in support for multi-threaded programs. An object that is shared between multiple threads can be locked in order to synchronize its access. Java provides primitives to designate critical code regions, which act on a shared object and which may be executed only by one thread at a time. The first thread that enters the region locks the shared object. When a second thread is about to enter the same region, it must wait until the first thread has unlocked the object again.</p>
-<p>In the Java HotSpot™ VM, every object is preceded by a class pointer and a header word. The header word, which stores the identity hash code as well as age and marking bits for generational garbage collection, is also used to implement a <em>thin lock scheme</em> [<a target="_blank" rel="noopener" href="https://wiki.openjdk.org/display/HotSpot/Synchronization#Synchronization-Agesen99">Agesen99</a>, <a target="_blank" rel="noopener" href="https://wiki.openjdk.org/display/HotSpot/Synchronization#Synchronization-Bacon98">Bacon98</a>]. The following figure shows the layout of the header word and the representation of different object states.</p>
-<p><img src="https://wiki.openjdk.org/download/attachments/11829266/Synchronization.gif?version=4&modificationDate=1208918680000&api=v2" alt="img"></p>
-<p>The right-hand side of the figure illustrates the standard locking process. As long as an object is unlocked, the last two bits have the value 01. When a method synchronizes on an object, the header word and a pointer to the object are stored in a lock record within the current stack frame. Then the VM attempts to install a pointer to the lock record in the object’s header word via a <em>compare-and-swap</em> operation. If it succeeds, the current thread afterwards owns the lock. Since lock records are always aligned at word boundaries, the last two bits of the header word are then 00 and identify the object as being locked.</p>
-<p>If the compare-and-swap operation fails because the object was locked before, the VM first tests whether the header word points into the method stack of the current thread. In this case, the thread already owns the object’s lock and can safely continue its execution. <strong>For such a <em>recursively</em> locked object, the lock record is initialized with 0 instead of the object’s header word.</strong> Only if two different threads concurrently synchronize on the same object, the thin lock must be <em>inflated</em> to a heavyweight monitor for the management of waiting threads.</p>
-<p>Thin locks are a lot cheaper than inflated locks, but their performance suffers from the fact that every compare-and-swap operation must be executed atomically on multi-processor machines, although most objects are locked and unlocked only by one particular thread. In Java 6, this drawback is addressed by a so-called <em>store-free biased locking technique</em> [<a target="_blank" rel="noopener" href="https://wiki.openjdk.org/display/HotSpot/Synchronization#Synchronization-Russel06">Russell06</a>], which uses concepts similar to [<a target="_blank" rel="noopener" href="https://wiki.openjdk.org/display/HotSpot/Synchronization#Synchronization-Kawachiya02">Kawachiya02</a>]. <strong>Only the first lock acquisition performs an atomic compare-and-swap to install an ID of the locking thread into the header word.</strong> The object is then said to be <em>biased</em> towards the thread. Future <strong>locking and unlocking</strong> of the object by the same thread <strong>do not require any atomic operation or an update of the header word.</strong> Even the lock record on the stack is left uninitialized as it will never be examined for a biased object.</p>
-<p>When a thread synchronizes on <strong>an object that is biased towards another thread</strong>, the bias must be <em>revoked</em> by making the object appear as if it had been locked the <strong>regular way.</strong> The stack of the bias owner is traversed, lock records associated with the object are adjusted according to the thin lock scheme, and a pointer to <strong>the oldest of them</strong> is installed in the object’s header word.(大概的意思是当偏向锁被撤销时，会按照常规的加锁方式进行加锁，先是轻量锁，再膨胀为重量锁) All threads must be suspended for this operation. The bias is also <strong>revoked when the identity hash code of an object is accessed</strong> <strong>since the hash code bits are shared with the thread ID</strong>.</p>
-<p>Objects that are explicitly designed to be shared between multiple threads, such as producer&#x2F;consumer queues, are not suitable for biased locking. Therefore, biased locking is disabled for a class <strong>if revocations for its instances happened frequently in the past.</strong> This is called <em><strong>bulk revocation</strong></em>. If the locking code is invoked on an instance of a class for which biased locking was disabled, it performs the standard thin locking. Newly allocated instances of the class are marked as non-biasable.</p>
-<p>A similar mechanism, called <strong><em>bulk rebiasing</em>,</strong> optimizes situations in which <strong>objects of a class are locked and unlocked by different threads but never concurrently.</strong> It invalidates the bias of all instances of a class without disabling biased locking. An <em>epoch value</em> in the class acts as a timestamp that indicates the validity of the bias. This value is copied into the header word upon object allocation. Bulk rebiasing can then efficiently be implemented as an increment of the epoch in the appropriate class. The next time an instance of this class is going to be locked, the code detects a different value in the header word and rebiases the object towards the current thread.</p>
-<h3 id="Source-Code-Hints"><a href="#Source-Code-Hints" class="headerlink" title="Source Code Hints"></a>Source Code Hints</h3><p>Synchronization affects multiple parts of the JVM: The structure of the object header is defined in the classes <code>oopDesc</code> and <code>markOopDesc</code>, the code for thin locks is integrated in the interpreter and compilers, and the class <code>ObjectMonitor</code> represents inflated locks. Biased locking is centralized in the class <code>BiasedLocking</code>. It can be enabled via the flag <code>-XX:+UseBiasedLocking</code> and disabled via <code>-XX:-UseBiasedLocking</code>. It is enabled by default for Java 6 and Java 7, but activated only some seconds after the application startup. Therefore, beware of short-running <a target="_blank" rel="noopener" href="https://wiki.openjdk.org/display/HotSpot/MicroBenchmarks">micro-benchmarks</a>. If necessary, turn off the delay using the flag <code>-XX:BiasedLockingStartupDelay=0</code>.</p>
-<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p>[Agesen99] O. Agesen, D. Detlefs, A. Garthwaite, R. Knippel, Y. S. Ramakrishna, D. White: <em>An Efficient Meta-lock for Implementing Ubiquitous Synchronization</em>. In <em>Proceedings of the ACM SIGPLAN Conference on Object-Oriented Programming, Systems, Languages, and Applications</em>, pages 207-222. ACM Press, 1999. <a target="_blank" rel="noopener" href="http://dx.doi.org/10.1145/320384.320402">doi:10.1145&#x2F;320384.320402</a></p>
-<p>[Bacon98] D. F. Bacon, R. Konuru, C. Murthy, M. Serrano: <em>Thin Locks: Featherweight Synchronization for Java</em>. In <em>Proceedings of the ACM SIGPLAN Conference on Programming Language Design and Implementation</em>, pages 258-268. ACM Press, 1998. <a target="_blank" rel="noopener" href="http://dx.doi.org/10.1145/277650.277734">doi:10.1145&#x2F;277650.277734</a></p>
-<p>[Kawachiya02] K. Kawachiya, A. Koseki, T. Onodera: Lock Reservation: Java Locks can Mostly do without Atomic Operations. In <em>Proceedings of the ACM SIGPLAN Conference on Object-Oriented Programming, Systems, Languages, and Applications</em>, pages 130-141. ACM Press, 2002. <a target="_blank" rel="noopener" href="http://dx.doi.org/10.1145/582419.582433">doi:10.1145&#x2F;582419.582433</a></p>
-<p>[Russel06] K. Russell, D. Detlefs: Eliminating Synchronization-Related Atomic Operations with Biased Locking and Bulk Rebiasing. In <em>Proceedings of the ACM SIGPLAN Conference on Object-Oriented Programming, Systems, Languages, and Applications</em>, pages 263-272. ACM Press, 2006. <a target="_blank" rel="noopener" href="http://dx.doi.org/10.1145/1167473.1167496">doi:10.1145&#x2F;1167473.1167496</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JAVA对象头</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">锁优化</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">C-Language</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://gccforstudy.github.io/2022/11/20/JVM%E5%AF%B9%E8%B1%A1%E5%A4%B4/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2023/04/13/C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%83%B3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          C程序设计语言学习感想
-        
-      </div>
-    </a>
   
   
-    <a href="/2022/09/16/Java%E5%80%BC%E4%BC%A0%E9%80%92/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java值传递</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -430,8 +213,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
