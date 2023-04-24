@@ -6,18 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://gccforstudy.github.io">
-  <title>Tag: 正则表达式 | gcc的博客</title>
+  <title>C++primer-IO | gcc的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="正在努力成为一名优秀的后端工程师">
-<meta property="og:type" content="website">
-<meta property="og:title" content="gcc的博客">
-<meta property="og:url" content="https://gccforstudy.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.html">
+  <meta name="description" content="IO类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++primer-IO">
+<meta property="og:url" content="https://gccforstudy.github.io/2023/04/13/C++primer-IO/index.html">
 <meta property="og:site_name" content="gcc的博客">
-<meta property="og:description" content="正在努力成为一名优秀的后端工程师">
+<meta property="og:description" content="IO类">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gccforstudy.github.io/2023/04/13/C++primer-IO/%E6%9D%A1%E4%BB%B6%E7%8A%B6%E6%80%81.png">
+<meta property="og:image" content="https://gccforstudy.github.io/2023/04/13/C++primer-IO/fstream.png">
+<meta property="og:image" content="https://gccforstudy.github.io/2023/04/13/C++primer-IO/%E6%96%87%E4%BB%B6%E6%A8%A1%E5%BC%8F.png">
+<meta property="og:image" content="https://gccforstudy.github.io/2023/04/13/C++primer-IO/string%E6%B5%81.png">
+<meta property="article:published_time" content="2023-04-13T02:49:02.411Z">
+<meta property="article:modified_time" content="2023-04-14T05:35:39.643Z">
 <meta property="article:author" content="gcc">
-<meta property="article:tag" content="java后端开发">
+<meta property="article:tag" content="IO">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gccforstudy.github.io/2023/04/13/C++primer-IO/%E6%9D%A1%E4%BB%B6%E7%8A%B6%E6%80%81.png">
   
     <link rel="alternative" href="/atom.xml" title="gcc的博客" type="application/atom+xml">
   
@@ -137,60 +144,251 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-C++primer-IO" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/09/04/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2022-09-04T02:49:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-04</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/09/04/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+    <h1 class="article-title" itemprop="name">
+      C++primer-IO
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2023/04/13/C++primer-IO/" class="archive-article-date">
+  	<time datetime="2023-04-13T02:49:02.411Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-13</time>
+</a>
+        
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="IO类"><a href="#IO类" class="headerlink" title="IO类"></a>IO类</h2><span id="more"></span>
+
+<h3 id="IO对象无拷贝或赋值"><a href="#IO对象无拷贝或赋值" class="headerlink" title="IO对象无拷贝或赋值"></a>IO对象无拷贝或赋值</h3><p>我们不能对拷贝或对IO对象赋值。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ofstream out1, out2;</span><br><span class="line">out1 = out2; <span class="comment">// error: cannot assign stream objects</span></span><br><span class="line"><span class="function">ofstream <span class="title">print</span><span class="params">(ofstream)</span></span>; <span class="comment">// error: can’t initialize the ofstream parameter</span></span><br><span class="line">out2 = <span class="built_in">print</span>(out2); <span class="comment">// error: cannot copy stream objects</span></span><br></pre></td></tr></table></figure>
+
+<p>进行IO操作的函数通常以引用方式传递和返回流，读写一个IO对象会改变其状态，因此传递和返回的引用不能是const的。</p>
+<h3 id="条件状态"><a href="#条件状态" class="headerlink" title="条件状态"></a>条件状态</h3><p>IO操作一个与生俱来的问题是可能发生错误。一些错误可以恢复，而其他错误则发生在系统深处，已经超出了应用程序可以修正的范围。IO类所定义的一些函数和标志，可以帮助我们访问和操纵流的<strong>条件状态</strong>。</p>
+<p>这部分的源码在ios_base.h头文件中，源码对应部分内容如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 27.4.2.1.3  Type ios_base::iostate</span></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  @brief This is a bitmask type.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     *  @c @a _Ios_Iostate is implementation-defined, but it is valid to</span></span><br><span class="line"><span class="comment">     *  perform bitwise operations on these values and expect the Right</span></span><br><span class="line"><span class="comment">     *  Thing to happen.  Defined objects of type iostate are:</span></span><br><span class="line"><span class="comment">     *  - badbit</span></span><br><span class="line"><span class="comment">     *  - eofbit</span></span><br><span class="line"><span class="comment">     *  - failbit</span></span><br><span class="line"><span class="comment">     *  - goodbit</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">typedef</span> _Ios_Iostate iostate;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// Indicates a loss of integrity in an input or output sequence (such</span></span><br><span class="line">    <span class="comment">/// as an irrecoverable read error from a file).</span></span><br><span class="line">    <span class="type">static</span> <span class="type">const</span> iostate badbit =	_S_badbit;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// Indicates that an input operation reached the end of an input sequence.</span></span><br><span class="line">    <span class="type">static</span> <span class="type">const</span> iostate eofbit =	_S_eofbit;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// Indicates that an input operation failed to read the expected</span></span><br><span class="line">    <span class="comment">/// characters, or that an output operation failed to generate the</span></span><br><span class="line">    <span class="comment">/// desired characters.</span></span><br><span class="line">    <span class="type">static</span> <span class="type">const</span> iostate failbit =	_S_failbit;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// Indicates all is well.</span></span><br><span class="line">    <span class="type">static</span> <span class="type">const</span> iostate goodbit =	_S_goodbit;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">_Ios_Iostate</span></span><br><span class="line">    &#123; </span><br><span class="line">      _S_goodbit 		= <span class="number">0</span>,</span><br><span class="line">      _S_badbit 		= <span class="number">1L</span> &lt;&lt; <span class="number">0</span>,</span><br><span class="line">      _S_eofbit 		= <span class="number">1L</span> &lt;&lt; <span class="number">1</span>,</span><br><span class="line">      _S_failbit		= <span class="number">1L</span> &lt;&lt; <span class="number">2</span>,</span><br><span class="line">      _S_ios_iostate_end = <span class="number">1L</span> &lt;&lt; <span class="number">16</span>,</span><br><span class="line">      _S_ios_iostate_max = __INT_MAX__,</span><br><span class="line">      _S_ios_iostate_min = ~__INT_MAX__</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+
+<p><img src="%E6%9D%A1%E4%BB%B6%E7%8A%B6%E6%80%81.png"></p>
+<p>确定一个流对象的状态的最简单的方法是将它当作一个条件来使用：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (cin &gt;&gt; word)</span><br><span class="line">    <span class="comment">//ok：读操作成功</span></span><br></pre></td></tr></table></figure>
+
+<p>while循环检查&gt;&gt;表达式返回的流的状态。如果输入操作成功，流保持有效状态，则条件为真。</p>
+<h3 id="查询流的状态"><a href="#查询流的状态" class="headerlink" title="查询流的状态"></a>查询流的状态</h3><p>IO库定义了一个与机器无关的iostate类型，它提供了表达流状态的完整功能。这个类型应作为一个位集合来使用。</p>
+<p>badbit表示系统错误，如不可恢复的读写错误。通常情况下，一旦badbit被置位，流就无法再使用了。在发生可恢复错误后，failbit被置位，如期望读取数值却读出一个字符等错误。这种问题通常是可以修正的，流还可以继续使用。如果到达文件结束位置，eofbit和failbit都会被置位。goodbit的值为0，表示流未发生错误。如果badbit、failbit和eofbit任一个被置位，则检测流状态的条件会失败。</p>
+<p>标准库还定义了一组函数来查询这些标志位的状态。操作good在所有错误位均未置位的情况下返回true，而bad、fail和eof则在对应错误位置被置位时返回true。从外，在badbit被置位时，fail也会返回true。这意味值，使用good或fail是确定流的总体状态的正确方法。实际上，我们将流当作条件使用的代码就等价于!fail()。而eof和bad操作只能表示特定的错误。</p>
+<h3 id="管理条件状态"><a href="#管理条件状态" class="headerlink" title="管理条件状态"></a>管理条件状态</h3><p>流对象的rdstate成员函数返回一个iostate值，对应流的当前状态。setstate操作将给定条件位置位，表示发生了对应错误。clear成员函数是一个重载的成员：它有一个不接受参数的版本，而另一个版本接受一个iostate类型的参数。</p>
+<p>clear不接受参数的版本清除(复位)所有错误标志位。执行clear()后，调用good会返回true。我们可以这样使用这些成员：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// remember the current state of cin</span></span><br><span class="line"><span class="keyword">auto</span> old_state = cin.<span class="built_in">rdstate</span>(); <span class="comment">// remember the current state of cin</span></span><br><span class="line">cin.<span class="built_in">clear</span>(); <span class="comment">// make cin valid</span></span><br><span class="line"><span class="built_in">process_input</span>(cin); <span class="comment">// use cin</span></span><br><span class="line">cin.<span class="built_in">setstate</span>(old_state); <span class="comment">// now reset cin to its old state</span></span><br></pre></td></tr></table></figure>
+
+<p>带参数的clear版本接受一个iostate值，表示流的新状态。为了复位单一的条件状态为，我们首先用rdstate读出当前条件状态，然后用位操作所需位复位来生成新的状态。例如，下面的代码将failbit和badbit复位，但保持eofbit不变：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// turns off failbit and badbit but all other bits unchanged</span></span><br><span class="line">cin.<span class="built_in">clear</span>(cin.<span class="built_in">rdstate</span>() &amp; ~cin.failbit &amp; ~cin.badbit);</span><br></pre></td></tr></table></figure>
+
+<h3 id="管理输出缓冲"><a href="#管理输出缓冲" class="headerlink" title="管理输出缓冲"></a>管理输出缓冲</h3><p>每个输出流都管理一个缓冲区，用来保存程序读写的数据。由于设备的写操作可能很耗时，允许操作系统将多个输出操作组合为单一的设备写操作可以带来很大的性能提升。</p>
+<p>导致缓冲刷新（即，数据真正写到输出设备或文件）的原因有很多：</p>
+<ul>
+<li>程序正常结束，作为main函数的return操作的一部分，缓冲刷新被执行。</li>
+<li>缓冲区满时，需要刷新缓冲区，而后新的数据才能继续写入缓冲区。</li>
+<li>我们可以使用操纵符如endl来显示刷新缓冲区。</li>
+<li>在每个输出操作之后，我可以用unitbuf设置流的内部状态，来清空缓冲区。默认情况下，对cerr是设置unitbuf的，因此写到cerr的内容都是立即刷新的。</li>
+<li>一个输出流可能被关联到另一个流。在这种情况下，当读写被关联的流时，关联到的流的缓冲区会被刷新。例如，默认情况下，cin和cerr都关联到cout。因此，读cin或写cerr都会导致cout的缓冲区刷新。</li>
+</ul>
+<p>unitbuf使用用例：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;chrono&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Diff&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">log_progress</span><span class="params">(Diff d)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;..(&quot;</span></span><br><span class="line">              &lt;&lt; std::chrono::<span class="built_in">duration_cast</span>&lt;std::chrono::milliseconds&gt;(d).<span class="built_in">count</span>()</span><br><span class="line">              &lt;&lt; <span class="string">&quot; ms)..&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">volatile</span> <span class="type">int</span> sink = <span class="number">0</span>;</span><br><span class="line">    std::cout &lt;&lt; std::unitbuf; <span class="comment">// enable automatic flushing</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">auto</span> t1 = std::chrono::high_resolution_clock::<span class="built_in">now</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; <span class="number">5</span>; ++j)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> n = <span class="number">0</span>; n &lt; <span class="number">10000</span>; ++n)</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> m = <span class="number">0</span>; m &lt; <span class="number">20000</span>; ++m)</span><br><span class="line">                sink += m * n; <span class="comment">// do some work</span></span><br><span class="line">        <span class="keyword">auto</span> now = std::chrono::high_resolution_clock::<span class="built_in">now</span>();</span><br><span class="line">        <span class="built_in">log_progress</span>(now - t1);</span><br><span class="line">    &#125;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="刷新输出缓冲区"><a href="#刷新输出缓冲区" class="headerlink" title="刷新输出缓冲区"></a>刷新输出缓冲区</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; <span class="string">&quot;hi!&quot;</span> &lt;&lt; endl; <span class="comment">// writes hi and a newline, then flushes the buffer</span></span><br><span class="line">cout &lt;&lt; <span class="string">&quot;hi!&quot;</span> &lt;&lt; flush; <span class="comment">// writes hi, then flushes the buffer; adds no data</span></span><br><span class="line">cout &lt;&lt; <span class="string">&quot;hi!&quot;</span> &lt;&lt; ends; <span class="comment">// writes hi and a null, then flushes the buffer</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="unitbuf操纵符"><a href="#unitbuf操纵符" class="headerlink" title="unitbuf操纵符"></a>unitbuf操纵符</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; unitbuf; <span class="comment">// all writes will be flushed immediately</span></span><br><span class="line"><span class="comment">// any output is flushed immediately, no buffering</span></span><br><span class="line">cout &lt;&lt; nounitbuf; <span class="comment">// returns to normal buffering</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果程序异常终止，输出缓冲区是不会被刷新的。</p>
+</blockquote>
+<h3 id="关联输入和输出流"><a href="#关联输入和输出流" class="headerlink" title="关联输入和输出流"></a>关联输入和输出流</h3><p>当一个输入流被关联到输出流时，任何试图从输入流读入流读取数据的操作都会先刷新关联的输出流。标准库cout和cin关联在一起。</p>
+<p>我们既可以将一个istream对象关联到另一个ostream，也可以将一个ostream关联到另一个ostream。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cin.<span class="built_in">tie</span>(&amp;cout); <span class="comment">// illustration only: the library ties cin and cout for us</span></span><br><span class="line"><span class="comment">// old_tie points to the stream (if any) currently tied to cin</span></span><br><span class="line">ostream *old_tie = cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>); <span class="comment">// cin is no longer tied</span></span><br><span class="line"><span class="comment">// ties cin and cerr; not a good idea because cin should be tied to cout</span></span><br><span class="line">cin.<span class="built_in">tie</span>(&amp;cerr); <span class="comment">// reading cin flushes cerr, not cout</span></span><br><span class="line">cin.<span class="built_in">tie</span>(old_tie); <span class="comment">// reestablish normal tie between cin and cout</span></span><br></pre></td></tr></table></figure>
+
+<p>每个流同时最多关联到一个流，但多个流可以同时关联到同一个ostream。</p>
+<h2 id="文件输入输出"><a href="#文件输入输出" class="headerlink" title="文件输入输出"></a>文件输入输出</h2><p><img src="fstream.png"></p>
+<h3 id="使用文件流对象"><a href="#使用文件流对象" class="headerlink" title="使用文件流对象"></a>使用文件流对象</h3><p>创建文件流对象时，我们可以提供文件名(可选的)。如果提供了一个文件名，则open会自动被调用：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ifstream <span class="title">in</span><span class="params">(ifile)</span></span>; <span class="comment">// construct an ifstream and open the given file</span></span><br><span class="line">ofstream out; <span class="comment">// output file stream that is not associated with any file</span></span><br></pre></td></tr></table></figure>
+
+<p>在新C++标志中，文件名既可以是库类型string对象，也可以是C风格字符数组。</p>
+<h3 id="用fstream代替iostream-amp"><a href="#用fstream代替iostream-amp" class="headerlink" title="用fstream代替iostream&amp;"></a>用fstream代替iostream&amp;</h3><p>在要求使用基类型对象的地方，我们可以用继承类型的对象来替代。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ifstream <span class="title">input</span><span class="params">(argv[<span class="number">1</span>])</span></span>; <span class="comment">// open the file of sales transactions</span></span><br><span class="line"><span class="function">ofstream <span class="title">output</span><span class="params">(argv[<span class="number">2</span>])</span></span>; <span class="comment">// open the output file</span></span><br><span class="line">Sales_data total; <span class="comment">// variable to hold the running sum</span></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">read</span>(input, total)) &#123; <span class="comment">// read the first transaction</span></span><br><span class="line">	Sales_data trans; <span class="comment">// variable to hold data for the next transaction</span></span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">read</span>(input, trans)) &#123; <span class="comment">// read the remaining transactions</span></span><br><span class="line">		<span class="keyword">if</span> (total.<span class="built_in">isbn</span>() == trans.<span class="built_in">isbn</span>()) <span class="comment">// check isbns</span></span><br><span class="line">			total.<span class="built_in">combine</span>(trans); <span class="comment">// update the running total</span></span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="built_in">print</span>(output, total) &lt;&lt; endl; <span class="comment">// print the results</span></span><br><span class="line">			total = trans; <span class="comment">// process the next book</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">print</span>(output, total) &lt;&lt; endl; <span class="comment">// print the last transaction</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="comment">// there was no input</span></span><br><span class="line">cerr &lt;&lt; <span class="string">&quot;No data?!&quot;</span> &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+
+<p>虽然两个函数定义时指定的形参分别是istream&amp;和ostream&amp;，但我们可以向它们传递fstream对象。</p>
+<h3 id="成员函数open和close"><a href="#成员函数open和close" class="headerlink" title="成员函数open和close"></a>成员函数open和close</h3><p>如果我们定义了一个空文件流对象，可以随后调用open来将它与文件关联起来：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ifstream <span class="title">in</span><span class="params">(ifile)</span></span>; <span class="comment">// construct an ifstream and open the given file</span></span><br><span class="line">ofstream out; <span class="comment">// output file stream that is not associated with any file</span></span><br><span class="line">out.<span class="built_in">open</span>(ifile + <span class="string">&quot;.copy&quot;</span>); <span class="comment">// open the specified file</span></span><br></pre></td></tr></table></figure>
+
+<p>如果调用open失败，failbit会被置位。因为调用open可能失败，进行open是否成功的检测通常是一个好习惯：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (out) <span class="comment">// check that the open succeeded</span></span><br><span class="line"><span class="comment">// the open succeeded, so we can use the file</span></span><br></pre></td></tr></table></figure>
+
+<p>实际上，对一个已经打开的文件流调用open会失败，并会导致failbit被置位。随后的试图使用文件流的操作都会失败。为了将文件流关联到另外一个文件，必须首先关闭已经关联的文件。一旦文件成功关闭，我们可以打开新的文件：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">in.<span class="built_in">close</span>(); <span class="comment">// close the file</span></span><br><span class="line">in.<span class="built_in">open</span>(ifile + <span class="string">&quot;2&quot;</span>); <span class="comment">// open another file</span></span><br></pre></td></tr></table></figure>
+
+<p>如果open成功，则open会设置流的状态，使得good()为true。</p>
+<h3 id="自动构造和析构"><a href="#自动构造和析构" class="headerlink" title="自动构造和析构"></a>自动构造和析构</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// for each file passed to the program</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> p = argv + <span class="number">1</span>; p != argv + argc; ++p) &#123;</span><br><span class="line">	<span class="function">ifstream <span class="title">input</span><span class="params">(*p)</span></span>; <span class="comment">// create input and open the file</span></span><br><span class="line"><span class="keyword">if</span> (input) &#123; <span class="comment">// if the file is ok, ‘‘process’’ this file</span></span><br><span class="line">	<span class="built_in">process</span>(input);</span><br><span class="line">&#125; <span class="keyword">else</span></span><br><span class="line">	cerr &lt;&lt; <span class="string">&quot;couldn’t open: &quot;</span> + <span class="built_in">string</span>(*p);</span><br><span class="line">&#125; <span class="comment">//  input goes out of scope and is destroyed on each iteratio</span></span><br></pre></td></tr></table></figure>
+
+<p>当一个fstream对象离开其作用域时，与之关联的文件会自动关闭</p>
+<blockquote>
+<p>当一个fstream对象被销毁时，close会自动被调用。</p>
+</blockquote>
+<h2 id="文件模式"><a href="#文件模式" class="headerlink" title="文件模式"></a>文件模式</h2><p>每个流都有一个关联的文件模式(file mode)，用来指出如何使用文件。</p>
+<p><img src="%E6%96%87%E4%BB%B6%E6%A8%A1%E5%BC%8F.png"></p>
+<h3 id="以out模式打开文件会丢弃已有数据"><a href="#以out模式打开文件会丢弃已有数据" class="headerlink" title="以out模式打开文件会丢弃已有数据"></a>以out模式打开文件会丢弃已有数据</h3><p>默认情况下，当我们打开一个ofstream时，文件的内容会被丢弃。阻止一个ofstream清空给定文件内容的方法是同时指定app模式：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// file1 is truncated in each of these cases</span></span><br><span class="line"><span class="function">ofstream <span class="title">out</span><span class="params">(<span class="string">&quot;file1&quot;</span>)</span></span>; <span class="comment">// out and trunc are implicit</span></span><br><span class="line"><span class="function">ofstream <span class="title">out2</span><span class="params">(<span class="string">&quot;file1&quot;</span>, ofstream::out)</span></span>; <span class="comment">// trunc is implicit</span></span><br><span class="line"><span class="function">ofstream <span class="title">out3</span><span class="params">(<span class="string">&quot;file1&quot;</span>, ofstream::out | ofstream::trunc)</span></span>;</span><br><span class="line"><span class="comment">// to preserve the file’s contents, we must explicitly specify app mode</span></span><br><span class="line"><span class="function">ofstream <span class="title">app</span><span class="params">(<span class="string">&quot;file2&quot;</span>, ofstream::app)</span></span>; <span class="comment">// out is implicit</span></span><br><span class="line"><span class="function">ofstream <span class="title">app2</span><span class="params">(<span class="string">&quot;file2&quot;</span>, ofstream::out | ofstream::app)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>保留被ofstream打开的文件中已有数据的唯一方法是显示指定app或in模式。</p>
+</blockquote>
+<h3 id="每次调用open时都会确定文件模式"><a href="#每次调用open时都会确定文件模式" class="headerlink" title="每次调用open时都会确定文件模式"></a>每次调用open时都会确定文件模式</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ofstream out; <span class="comment">// no file mode is set </span></span><br><span class="line">out.<span class="built_in">open</span>(<span class="string">&quot;scratchpad&quot;</span>); <span class="comment">// mode implicitly out and trunc</span></span><br><span class="line">out.<span class="built_in">close</span>(); <span class="comment">// close out so we can use it for a different file</span></span><br><span class="line">out.<span class="built_in">open</span>(<span class="string">&quot;precious&quot;</span>, ofstream::app); <span class="comment">// mode is out and app</span></span><br><span class="line">out.<span class="built_in">close</span>();</span><br></pre></td></tr></table></figure>
+
+<p>对于一个给定流，每当打开文件时，都可以改变其文件模式。</p>
+<blockquote>
+<p>在每次打开文件时，都要设置文件模式，可能是显式地设置，也可能是隐式地设置。当程序未指定模式时，就使用默认值。</p>
+</blockquote>
+<h2 id="string流"><a href="#string流" class="headerlink" title="string流"></a>string流</h2><p><img src="string%E6%B5%81.png"></p>
+<h3 id="使用istringstream"><a href="#使用istringstream" class="headerlink" title="使用istringstream"></a>使用istringstream</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">PersonInfo</span> &#123;</span><br><span class="line">	string name;</span><br><span class="line">	vector&lt;string&gt; phones;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">string line, word; <span class="comment">// will hold a line and word from input, respectively</span></span><br><span class="line">vector&lt;PersonInfo&gt; people; <span class="comment">// will hold all the records from the input</span></span><br><span class="line"><span class="comment">// read the input a line at a time until cin hits end-of-file (or another error)</span></span><br><span class="line"><span class="keyword">while</span> (<span class="built_in">getline</span>(cin, line)) &#123;</span><br><span class="line">	PersonInfo info; <span class="comment">// create an object to hold this record’s data</span></span><br><span class="line">	<span class="function">istringstream <span class="title">record</span><span class="params">(line)</span></span>; <span class="comment">// bind record to the line we just read</span></span><br><span class="line">	record &gt;&gt; info.name; <span class="comment">// read the name</span></span><br><span class="line">	<span class="keyword">while</span> (record &gt;&gt; word) <span class="comment">// read the phone numbers</span></span><br><span class="line">		info.phones.<span class="built_in">push_back</span>(word); <span class="comment">// and store them</span></span><br><span class="line">	people.<span class="built_in">push_back</span>(info); <span class="comment">// append this record to people</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>字符串输入流的作用是你可以将输入流的字符串输出到其他字符串中去。</p>
+</blockquote>
+<h3 id="使用ostringstream"><a href="#使用ostringstream" class="headerlink" title="使用ostringstream"></a>使用ostringstream</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span> &amp;entry : people) &#123; <span class="comment">// for each entry in people</span></span><br><span class="line">	ostringstream formatted, badNums; <span class="comment">// objects created on each loop</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span> &amp;nums : entry.phones) &#123; <span class="comment">// for each number</span></span><br><span class="line">		<span class="keyword">if</span> (!<span class="built_in">valid</span>(nums)) &#123;</span><br><span class="line">		badNums &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; nums; <span class="comment">// string in badNums</span></span><br><span class="line">		&#125; <span class="keyword">else</span></span><br><span class="line">		<span class="comment">// ‘‘writes’’ to formatted’s string</span></span><br><span class="line">		formatted &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; format(nums);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (badNums.<span class="built_in">str</span>().<span class="built_in">empty</span>()) <span class="comment">// there were no bad numbers</span></span><br><span class="line">		os &lt;&lt; entry.name &lt;&lt; <span class="string">&quot; &quot;</span> <span class="comment">// print the name</span></span><br><span class="line">			&lt;&lt; formatted.<span class="built_in">str</span>() &lt;&lt; endl; <span class="comment">// and reformatted numbers</span></span><br><span class="line">	<span class="keyword">else</span> <span class="comment">// otherwise, print the name and bad numbers</span></span><br><span class="line">		cerr &lt;&lt; <span class="string">&quot;input error: &quot;</span> &lt;&lt; entry.name</span><br><span class="line">			&lt;&lt; <span class="string">&quot; invalid number(s) &quot;</span> &lt;&lt; badNums.<span class="built_in">str</span>() &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>C++使用标准库类来处理面向流的输入和输出：</p>
+<ul>
+<li>iostream处理控制台IO</li>
+<li>fstream处理命名文件IO</li>
+<li>stringstream完成内存string的IO</li>
+</ul>
+<p>每个IO对象都维护一组条件状态，用来指出此对象上是否可以进行IO操作。标准库提供了一组函数，用来设置和检测这些状态。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">正则表达式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">IO</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://gccforstudy.github.io/2023/04/13/C++primer-IO/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2023/04/13/C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E6%84%9F%E6%83%B3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C程序设计语言学习感想</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -213,9 +411,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
